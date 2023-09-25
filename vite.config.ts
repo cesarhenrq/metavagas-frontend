@@ -18,6 +18,7 @@ export default defineConfig({
       '@assets': '/src/assets',
       '@types': '/src/types',
       '@services': '/src/services',
+      '@styles': '/src/styles',
     },
   },
   plugins: [react()],
