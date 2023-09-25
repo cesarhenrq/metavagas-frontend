@@ -4,3 +4,7 @@ coverage
 public
 .docz
 global
+.prettierignore
+.eslintrc.js
+tsconfig.json
+.prettierrc

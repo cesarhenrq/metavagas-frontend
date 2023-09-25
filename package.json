@@ -12,6 +12,7 @@
     "lint": "eslint . --cache-location node_modules/.cache/eslint",
     "typecheck": "tsc --noEmit",
     "validate": "npm-run-all --parallel format lint typecheck build",
+    "validate:ci": "npm-run-all --parallel format lint typecheck",
     "cy:open": "cypress open",
     "cy:open-e2e": "server-test 3000 'cypress open --e2e --browser chrome'",
     "cy:run-e2e": "server-test 3000 'cypress run --e2e --browser chrome'",

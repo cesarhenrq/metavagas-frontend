@@ -10,4 +10,4 @@ module.exports = {
     '@typescript-eslint/no-var-requires': 'off',
   },
   env: {'cypress/globals': true},
-}
+};
