@@ -8,7 +8,7 @@
     "serve": "vite preview",
     "test": "jest",
     "test:coverage": "yarn test --watchAll=false --collectCoverageFrom=src/**/*.ts* --collectCoverageFrom=!src/**/*.*.ts* --coverage",
-    "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|json|css|md|mdx|html)\"",
+    "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|json|css|md|mdx|html|jsx|ts|tsx)\"",
     "lint": "eslint . --cache-location node_modules/.cache/eslint",
     "typecheck": "tsc --noEmit",
     "validate": "npm-run-all --parallel format lint typecheck build",

@@ -9,5 +9,5 @@ module.exports = {
     'cypress/no-pause': 'error',
     '@typescript-eslint/no-var-requires': 'off',
   },
-  env: {'cypress/globals': true},
+  env: { 'cypress/globals': true },
 };
