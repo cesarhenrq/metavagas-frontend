@@ -19,6 +19,12 @@ module.exports = {
     quotes: ['error', 'single'],
     semi: ['error', 'always'],
     eqeqeq: 'error',
+    'prettier/prettier': [
+      'off',
+      {
+        bracketSpacing: true,
+      },
+    ],
   },
   env: {
     browser: true,
