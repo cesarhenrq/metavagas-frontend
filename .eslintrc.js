@@ -23,7 +23,7 @@ module.exports = {
     'prettier/prettier': [
       'error',
       {
-        endOfLine: 'auto',
+        endOfLine: 'crlf',
         bracketSpacing: true,
       },
     ],
@@ -34,3 +34,4 @@ module.exports = {
     node: true,
   },
 };
+
