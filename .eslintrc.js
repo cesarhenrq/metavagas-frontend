@@ -16,14 +16,12 @@ module.exports = {
     'testing-library/no-render-in-setup': 'off',
     semi: ['error', 'always'],
     indent: ['error', 2],
-    'linebreak-style': ['error', 'windows'],
     quotes: ['error', 'single'],
     semi: ['error', 'always'],
     eqeqeq: 'error',
     'prettier/prettier': [
       'error',
       {
-        endOfLine: 'auto',
         bracketSpacing: true,
       },
     ],
