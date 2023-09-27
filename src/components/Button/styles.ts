@@ -5,7 +5,8 @@ export const Button = styled.button<ButtonProps>`
   border-radius: 0.5rem;
   background-color: ${({ backgroundColor }) =>
     backgroundColor ? `var(--${backgroundColor})` : 'var(--yellow)'};
-  border-color: ${({ borderColor, backgroundColor }) =>
-    borderColor ? `var(--${borderColor})` : `var(--${backgroundColor})`};
-  border: 1px solid;
+  border: ${({ borderColor, backgroundColor }) =>
+    borderColor
+      ? `1px solid var(--${borderColor})`
+      : `1px solid var(--${backgroundColor})`};
 `;
