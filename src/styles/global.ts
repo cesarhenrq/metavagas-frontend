@@ -13,6 +13,7 @@ export default createGlobalStyle`
     --font-size-small: 0.875rem;
     --font-size-xsmall: 0.75rem;
     --font-size-medium: 1.125rem;
+    --font-size-xmedium: 1.5rem;
     --font-size-large: 2rem;
     --font-size-xlarge: 3rem;
   }
