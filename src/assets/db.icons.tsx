@@ -2,9 +2,10 @@ type IconProps = {
   fill: 'yellow' | 'gray' | 'purple-dark' | 'white';
   width: number;
   height: number;
+  onClick?: () => void;
 };
 
-function Magnifier({ fill, width, height }: IconProps) {
+function Magnifier({ fill, width, height, onClick }: IconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -12,6 +13,7 @@ function Magnifier({ fill, width, height }: IconProps) {
       height={height}
       fill="none"
       viewBox="0 0 24 24"
+      onClick={onClick}
     >
       <g clipPath="url(#clip0_2503_226)">
         <path
@@ -28,7 +30,7 @@ function Magnifier({ fill, width, height }: IconProps) {
   );
 }
 
-function Location({ fill, width, height }: IconProps) {
+function Location({ fill, width, height, onClick }: IconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -36,6 +38,7 @@ function Location({ fill, width, height }: IconProps) {
       height={height}
       fill="none"
       viewBox="0 0 24 24"
+      onClick={onClick}
     >
       <g clipPath="url(#clip0_2503_222)">
         <path
