@@ -5,7 +5,7 @@ export const Container = styled.div`
   align-items: center;
   gap: 1rem;
   border: 1px solid var(--gray-light);
-  padding: 1rem;
+  padding: 0.75rem;
   border-radius: 0.5rem;
   color: var(--purple-dark);
   background-color: var(--white);
