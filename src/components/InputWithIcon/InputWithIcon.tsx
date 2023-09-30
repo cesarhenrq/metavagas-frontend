@@ -10,6 +10,7 @@ type InputWithIconProps = {
   value?: string;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   type?: string;
+  name?: string;
 };
 
 const InputWithIcon = ({
