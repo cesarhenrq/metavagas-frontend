@@ -8,6 +8,7 @@ export default {
     '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
     '^@components/(.*)$': '<rootDir>/src/components/$1',
     '^@assets/(.*)$': '<rootDir>/src/assets/$1',
+    '^@hooks/(.*)$': '<rootDir>/src/hooks/$1',
   },
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
 };
