@@ -40,6 +40,8 @@ declare global {
         component: React.ReactNode,
         options?: MountOptions,
       ): Cypress.Chainable<MountReturn>;
+
+      realHover(): Chainable<Subject>;
     }
   }
 }
