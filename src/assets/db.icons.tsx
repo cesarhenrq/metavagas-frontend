@@ -277,7 +277,7 @@ function Save({ fill, width, height }: IconProps) {
   );
 }
 
-function Arrow({ fill, width, height }: IconProps) {
+function Arrow({ fill, width, height, onClick }: IconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -285,6 +285,9 @@ function Arrow({ fill, width, height }: IconProps) {
       height={height}
       fill="none"
       viewBox="0 0 20 20"
+      onClick={onClick}
+      className="icon"
+      data-cy="arrow"
     >
       <g clipPath="url(#clip0_3054_218)">
         <path
