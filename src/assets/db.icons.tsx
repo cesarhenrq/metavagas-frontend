@@ -3,6 +3,7 @@ type IconProps = {
   width: number;
   height?: number;
   onClick?: () => void;
+  active?: boolean;
 };
 
 function Magnifier({ fill, width, height, onClick }: IconProps) {
@@ -30,7 +31,7 @@ function Magnifier({ fill, width, height, onClick }: IconProps) {
   );
 }
 
-function Location({ fill, width, height, onClick }: IconProps) {
+function Location({ fill, width, height, onClick, active }: IconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -39,10 +40,13 @@ function Location({ fill, width, height, onClick }: IconProps) {
       fill="none"
       viewBox="0 0 24 24"
       onClick={onClick}
+      className="location-icon"
+      data-cy="location-icon"
     >
       <g clipPath="url(#clip0_2503_222)">
         <path
-          fill={`var(--${fill})`}
+          data-cy="location-icon-path"
+          fill={active ? 'var(--yellow)' : `var(--${fill})`}
           d="M12 20.9l4.95-4.95a7 7 0 10-9.9 0L12 20.9zm0 2.828l-6.364-6.364a9 9 0 1112.728 0L12 23.728zM12 13a2 2 0 100-4 2 2 0 000 4zm0 2a4 4 0 110-8 4 4 0 010 8z"
         ></path>
       </g>
@@ -55,7 +59,7 @@ function Location({ fill, width, height, onClick }: IconProps) {
   );
 }
 
-function Computer({ fill, width, height }: IconProps) {
+function Computer({ fill, width, height, active }: IconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -63,10 +67,13 @@ function Computer({ fill, width, height }: IconProps) {
       height={height}
       fill="none"
       viewBox="0 0 16 16"
+      className="computer-icon"
+      data-cy="computer-icon"
     >
       <g clipPath="url(#clip0_3050_1241)">
         <path
-          fill={`var(--${fill})`}
+          data-cy="computer-icon-path"
+          fill={active ? 'var(--yellow)' : `var(--${fill})`}
           d="M2.667 10.667h10.666V3.333H2.667v7.334zm6 1.333v1.333h2.666v1.334H4.667v-1.334h2.666V12H1.995a.664.664 0 01-.662-.671V2.67c0-.37.304-.671.662-.671h12.01c.366 0 .662.3.662.671v8.658c0 .37-.304.671-.662.671H8.667z"
         ></path>
       </g>
@@ -79,7 +86,7 @@ function Computer({ fill, width, height }: IconProps) {
   );
 }
 
-function Suitcase({ fill, width, height }: IconProps) {
+function Suitcase({ fill, width, height, active }: IconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -87,10 +94,13 @@ function Suitcase({ fill, width, height }: IconProps) {
       height={height}
       fill="none"
       viewBox="0 0 24 24"
+      className="suitcase-icon"
+      data-cy="suitcase-icon"
     >
       <g clipPath="url(#clip0_2516_328)">
         <path
-          fill={`var(--${fill})`}
+          data-cy="suitcase-icon-path"
+          fill={active ? 'var(--yellow)' : `var(--${fill})`}
           d="M7 5V2a1 1 0 011-1h8a1 1 0 011 1v3h4a1 1 0 011 1v14a1 1 0 01-1 1H3a1 1 0 01-1-1V6a1 1 0 011-1h4zm2 8H4v6h16v-6h-5v3H9v-3zm11-6H4v4h5V9h6v2h5V7zm-9 4v3h2v-3h-2zM9 3v2h6V3H9z"
         ></path>
       </g>
