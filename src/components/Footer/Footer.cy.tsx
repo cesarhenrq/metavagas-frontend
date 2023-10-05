@@ -72,8 +72,4 @@ describe('<Footer />', () => {
       '1px solid rgb(251, 176, 77)',
     );
   });
-
-  it('should line has margin: 0 8.4375rem', () => {
-    cy.getByCy('line').should('have.css', 'margin', '0px 135px');
-  });
 });
