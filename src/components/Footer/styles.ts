@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 
 export const Footer = styled.footer`
+  position: relative;
   background-color: var(--purple-dark);
   padding: 4.375rem 8.4375rem 6.875rem 8.4375rem;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  width: 100vw;
+  width: 100%;
 
   .text {
     justify-content: flex-start;
@@ -45,6 +46,11 @@ export const Circle = styled.div`
 `;
 
 export const Line = styled.hr`
+  position: absolute;
   border: 1px solid var(--yellow);
-  margin: 0 8.4375rem;
+  top: 0;
+  left: 8.4375rem;
+  right: 8.4375rem;
+  width: calc(100% - 16.875rem);
+  z-index: 1;
 `;
