@@ -1,1 +1,1 @@
-type FontWeight = 'normal' | 'bold' | 'lighter' | '600';
+type FontWeight = 'normal' | 'bold' | 'lighter' | '600' | '500';

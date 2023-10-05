@@ -1,7 +1,7 @@
 type IconProps = {
-  fill: 'yellow' | 'gray' | 'purple-dark' | 'white';
+  fill: 'yellow' | 'gray' | 'purple-dark' | 'white' | 'purple';
   width: number;
-  height: number;
+  height?: number;
   onClick?: () => void;
 };
 

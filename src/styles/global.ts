@@ -7,6 +7,7 @@ export default createGlobalStyle`
     --purple-dark: #1A1033;
     --white: #FFFFFF;
     --gray: #A6A8AB;
+    --dark-grey: #4A4A68;
     --gray-light: #D1D1D1;
     --yellow: #FBB04D;
     --font-size-normal: 1rem;
