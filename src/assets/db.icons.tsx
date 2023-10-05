@@ -1,11 +1,3 @@
-type IconProps = {
-  fill: 'yellow' | 'gray' | 'purple-dark' | 'white' | 'purple';
-  width: number;
-  height?: number;
-  onClick?: () => void;
-  active?: boolean;
-};
-
 function Magnifier({ fill, width, height, onClick }: IconProps) {
   return (
     <svg
@@ -146,6 +138,7 @@ function Telephone({ fill, width, height }: IconProps) {
       height={height}
       fill="none"
       viewBox="0 0 17 16"
+      data-cy="phone-icon"
     >
       <g clipPath="url(#clip0_3050_1118)">
         <path
@@ -174,6 +167,7 @@ function Message({ fill, width, height }: IconProps) {
       height={height}
       fill="none"
       viewBox="0 0 17 16"
+      data-cy="email-icon"
     >
       <g clipPath="url(#clip0_3050_1102)">
         <path
