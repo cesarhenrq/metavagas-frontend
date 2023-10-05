@@ -5,6 +5,7 @@ export default createGlobalStyle`
     --purple: #5D5FEF;
     --purple-light: #B2A1D9;
     --purple-dark: #1A1033;
+    --purple-dark-secondary: #6950A1;
     --white: #FFFFFF;
     --gray: #A6A8AB;
     --dark-grey: #4A4A68;
