@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router';
+
 import Text from '@components/Text';
 import Button from '@components/Button';
 import { Telephone, Location, Message } from '@assets/db.icons';
@@ -18,8 +20,10 @@ const adressText = (
 );
 
 const Footer = () => {
-  const dummy = () => {
-    console.log('first');
+  const navigate = useNavigate();
+
+  const redirect = (path: string) => {
+    navigate(path);
   };
 
   return (
@@ -62,14 +66,14 @@ const Footer = () => {
       <div className="button-container" data-cy="auth-buttons">
         <Button
           label="Entrar"
-          onClick={dummy}
+          onClick={() => redirect('/login')}
           backgroundColor="purple-dark"
           fontColor="white"
           borderColor="white"
         />
         <Button
           label="Cadastrar-se gratuitamente"
-          onClick={dummy}
+          onClick={() => redirect('/register')}
           borderColor="yellow"
         />
       </div>

@@ -1,10 +1,18 @@
 import { render, screen } from '@testing-library/react';
 
+import { BrowserRouter } from 'react-router-dom';
+
 import RegisterCard from './RegisterCard';
 
 describe('<RegisterCard />', () => {
   beforeEach(() => {
-    render(<RegisterCard />);
+    render(
+      <>
+        <BrowserRouter>
+          <RegisterCard />
+        </BrowserRouter>
+      </>,
+    );
   });
 
   it('should be defined', () => {

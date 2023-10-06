@@ -1,11 +1,12 @@
 import Footer from './Footer';
 import GlobalStyle from '@styles/global';
+import { BrowserRouter } from 'react-router-dom';
 
 const Sut = () => (
-  <>
+  <BrowserRouter>
     <GlobalStyle />
     <Footer />
-  </>
+  </BrowserRouter>
 );
 
 describe('<Footer />', () => {

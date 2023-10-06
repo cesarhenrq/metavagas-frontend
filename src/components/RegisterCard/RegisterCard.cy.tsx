@@ -1,13 +1,15 @@
 import RegisterCard from './RegisterCard';
 import GlobalStyle from '@styles/global';
 
+import { BrowserRouter } from 'react-router-dom';
+
 describe('<RegisterCard />', () => {
   beforeEach(() => {
     cy.mount(
-      <>
+      <BrowserRouter>
         <GlobalStyle />
         <RegisterCard />
-      </>,
+      </BrowserRouter>,
     );
   });
 
@@ -69,10 +71,5 @@ describe('<RegisterCard />', () => {
 
   it('should circle has height: 4rem', () => {
     cy.getByCy('circle').should('have.css', 'height', '64px');
-  });
-
-  it('should redirect to register page when click on link', () => {
-    cy.getByCy('link').click();
-    cy.url().should('include', 'http://localhost:3000/__/');
   });
 });

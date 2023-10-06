@@ -5,7 +5,7 @@ import * as S from './styles';
 
 const SubHeader = () => {
   return (
-    <S.SubHeader>
+    <S.SubHeader data-cy="sub-header">
       <div className="text-container">
         <Text
           label="MAIS DE 12.000 VAGAS DE TECNOLOGIA, REUNIDAS EM UM SÓ LUGAR"

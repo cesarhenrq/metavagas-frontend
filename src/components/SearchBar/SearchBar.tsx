@@ -22,7 +22,7 @@ const SearchBar = () => {
   };
 
   return (
-    <S.Container className="search-bar">
+    <S.Container className="search-bar" data-cy="search-bar">
       <div className="search-form">
         <div className="form-group">
           <label htmlFor="magnifier">
@@ -59,6 +59,7 @@ const SearchBar = () => {
               <Button
                 label={search}
                 onClick={() => handleRecentSearch(search)}
+                key={search}
                 fontSize="small"
                 fontColor="purple-light"
                 backgroundColor="white"

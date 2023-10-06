@@ -1,11 +1,12 @@
 import FilterCardContainer from './FilterCardContainer';
 import GlobalStyle from '@styles/global';
+import { BrowserRouter } from 'react-router-dom';
 
 const Sut = () => (
-  <>
+  <BrowserRouter>
     <GlobalStyle />
     <FilterCardContainer />
-  </>
+  </BrowserRouter>
 );
 
 describe('<FilterCardContainer />', () => {
