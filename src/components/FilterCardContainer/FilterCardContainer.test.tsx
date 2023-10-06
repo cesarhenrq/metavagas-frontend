@@ -1,10 +1,16 @@
 import { render, screen } from '@testing-library/react';
 
+import { BrowserRouter } from 'react-router-dom';
+
 import FilterCardContainer from './FilterCardContainer';
 
 describe('<FilterCardContainer />', () => {
   beforeEach(() => {
-    render(<FilterCardContainer />);
+    render(
+      <BrowserRouter>
+        <FilterCardContainer />
+      </BrowserRouter>,
+    );
   });
 
   it('should be defined', () => {
