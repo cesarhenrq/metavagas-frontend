@@ -4,7 +4,7 @@ import FilterNavigation from './FilterNavigation';
 import GlobalStyle from '@styles/global';
 
 const Sut = () => {
-  const [activeTab, setActiveTab] = useState('tecnology');
+  const [activeTab, setActiveTab] = useState('technology');
 
   const handleTabClick = (event: React.MouseEvent<HTMLDivElement>) => {
     const { id } = event.currentTarget;

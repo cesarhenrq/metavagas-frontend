@@ -15,7 +15,7 @@ module.exports = {
     '@typescript-eslint/no-var-requires': 'off',
     'testing-library/no-render-in-setup': 'off',
     semi: ['error', 'always'],
-    indent: ['error', 2],
+    indent: ['error', 2, { SwitchCase: 1 }],
     quotes: ['error', 'single'],
     semi: ['error', 'always'],
     eqeqeq: 'error',

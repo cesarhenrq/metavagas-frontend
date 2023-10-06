@@ -9,6 +9,8 @@ export default {
     '^@components/(.*)$': '<rootDir>/src/components/$1',
     '^@assets/(.*)$': '<rootDir>/src/assets/$1',
     '^@hooks/(.*)$': '<rootDir>/src/hooks/$1',
+    '^@services/(.*)$': '<rootDir>/src/services/$1',
+    axios: 'axios/dist/node/axios.cjs',
   },
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
 };
