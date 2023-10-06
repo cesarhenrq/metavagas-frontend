@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const SubHeader = styled.header`
   background-color: var(--purple-dark);
-  width: 100vw;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   padding: 1.25rem 8.438rem;

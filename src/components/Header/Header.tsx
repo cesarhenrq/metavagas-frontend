@@ -1,11 +1,15 @@
+import { useNavigate } from 'react-router-dom';
+
 import Text from '@components/Text';
 import Button from '@components/Button';
 
 import * as S from './styles';
 
 const Header = () => {
-  const dummy = () => {
-    console.log('first');
+  const navigate = useNavigate();
+
+  const redirect = (path: string) => {
+    navigate(path);
   };
   return (
     <>
@@ -23,14 +27,14 @@ const Header = () => {
         <div className="button-container">
           <Button
             label="Entrar"
-            onClick={dummy}
+            onClick={() => redirect('/login')}
             backgroundColor="purple-dark"
             fontColor="white"
             borderColor="white"
           />
           <Button
             label="Cadastrar-se gratuitamente"
-            onClick={dummy}
+            onClick={() => redirect('/register')}
             borderColor="yellow"
           />
         </div>
