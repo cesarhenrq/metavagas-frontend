@@ -21,6 +21,7 @@
     "cy:run-ct-fast": "yarn cy:run-ct --config video=false screenshot=false"
   },
   "dependencies": {
+    "axios": "^1.5.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "styled-components": "^6.0.8"

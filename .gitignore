@@ -37,3 +37,5 @@ ignored/
 .eslintcache
 combined-coverage
 .nyc_output
+
+.env
