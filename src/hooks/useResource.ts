@@ -3,10 +3,6 @@ import { useState } from 'react';
 import httpClient from '@services/httpClient';
 import { AxiosError } from 'axios';
 
-type Service = {
-  get: () => Promise<void>;
-};
-
 const useResource = <T>(resouceUrl: string): [T[], Service] => {
   const [resources, setResources] = useState<T[]>([]);
 
