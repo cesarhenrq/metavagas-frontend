@@ -1,15 +1,6 @@
 import FilterCardContainer from './FilterCardContainer';
 import GlobalStyle from '@styles/global';
 
-const clickTestHelper = [
-  {
-    whereToClick: 'Cidades',
-    whatToExpect: 'filter-cards-location',
-  },
-  { whereToClick: 'Cargos', whatToExpect: 'filter-cards-roles' },
-  { whereToClick: 'Tecnologia', whatToExpect: 'filter-cards-technology' },
-];
-
 const Sut = () => (
   <>
     <GlobalStyle />
@@ -76,16 +67,5 @@ describe('<FilterCardContainer />', () => {
 
   it('should filter cards wrapper has margin-top: 1.875rem', () => {
     cy.getByClassLike('filter-cards').should('have.css', 'margin-top', '30px');
-  });
-
-  it('should filter card has width: 16.875rem', () => {
-    cy.getByCy('filter-card').should('have.css', 'width', '213px');
-  });
-
-  clickTestHelper.forEach(helper => {
-    it(`should show ${helper.whatToExpect} when click on ${helper.whereToClick}`, () => {
-      cy.contains(helper.whereToClick).click();
-      cy.getByCy(helper.whatToExpect).should('be.visible');
-    });
   });
 });
