@@ -1,13 +1,15 @@
 import BaseLayout from './BaseLayout';
 import GlobalStyle from '@styles/global';
 
+import { BrowserRouter } from 'react-router-dom';
+
 const Sut = () => (
-  <>
+  <BrowserRouter>
     <GlobalStyle />
     <BaseLayout>
       <div>children</div>
     </BaseLayout>
-  </>
+  </BrowserRouter>
 );
 
 describe('<BaseLayout />', () => {
