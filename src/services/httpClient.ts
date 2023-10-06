@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const httpClient = axios.create({
-  baseURL: import.meta.env.VITE_BASE_URL,
+  baseURL: 'https://metavagasapi.onrender.com/',
 });
 
 export default httpClient;

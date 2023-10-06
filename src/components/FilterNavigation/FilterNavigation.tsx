@@ -17,15 +17,15 @@ const FilterNavigation = ({ activeTab, onClick }: FilterNavigationProps) => {
       <S.FilterNavigationItem
         className="filter-navigation-item"
         data-cy="filter-navigation-tecnology"
-        id="tecnology"
+        id="technology"
         onClick={onClick}
-        active={activeTab === 'tecnology'}
+        active={activeTab === 'technology'}
       >
         <Computer
           fill="white"
           width={24}
           height={24}
-          active={activeTab === 'tecnology'}
+          active={activeTab === 'technology'}
         />
         <Text label="Tecnologia" fontColor="white" fontSize="medium" />
       </S.FilterNavigationItem>
@@ -47,15 +47,15 @@ const FilterNavigation = ({ activeTab, onClick }: FilterNavigationProps) => {
       <S.FilterNavigationItem
         className="filter-navigation-item"
         data-cy="filter-navigation-job"
-        id="job"
+        id="roles"
         onClick={onClick}
-        active={activeTab === 'job'}
+        active={activeTab === 'roles'}
       >
         <Suitcase
           fill="white"
           width={24}
           height={24}
-          active={activeTab === 'job'}
+          active={activeTab === 'roles'}
         />
         <Text label="Cargos" fontColor="white" fontSize="medium" />
       </S.FilterNavigationItem>
