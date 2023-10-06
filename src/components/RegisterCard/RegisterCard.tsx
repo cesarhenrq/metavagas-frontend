@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import BaseCard from '@components/BaseCard';
 import Text from '@components/Text';
 import { Person } from '@assets/db.icons';
@@ -8,9 +10,9 @@ const RegisterCard = () => {
   const textLabel = (
     <span>
       Faça seu{' '}
-      <a href="http://localhost:3000/__/" data-cy="link">
+      <Link to="/register" data-cy="link">
         cadastro gratuito
-      </a>{' '}
+      </Link>{' '}
       e encontre vagas de acordo com seu perfil.
     </span>
   );
