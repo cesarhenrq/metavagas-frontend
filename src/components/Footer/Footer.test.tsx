@@ -2,9 +2,17 @@ import { render, screen } from '@testing-library/react';
 
 import Footer from './Footer';
 
+import { BrowserRouter } from 'react-router-dom';
+
 describe('<Footer />', () => {
   beforeEach(() => {
-    render(<Footer />);
+    render(
+      <>
+        <BrowserRouter>
+          <Footer />
+        </BrowserRouter>
+      </>,
+    );
   });
 
   it('should render the footer', () => {
