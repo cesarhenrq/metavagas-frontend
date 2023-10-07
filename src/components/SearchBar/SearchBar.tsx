@@ -4,6 +4,7 @@ import Button from './../Button';
 
 import useField from '@hooks/useField';
 import useRecentSearches from '@hooks/useRecentSearches';
+import useSearchHandling from '@hooks/useSearchHandling';
 
 import * as S from './styles';
 
@@ -13,9 +14,11 @@ const SearchBar = () => {
 
   const [recentSearches, addRecentSearch] = useRecentSearches();
 
-  const handleOnSearch = () => {
-    positionOrTech.value && addRecentSearch(positionOrTech.value);
-  };
+  const handleSearch = useSearchHandling(
+    positionOrTech.value,
+    location.value,
+    addRecentSearch,
+  );
 
   const handleRecentSearch = (value: string) => {
     setPositionOrTech(value);
@@ -46,7 +49,7 @@ const SearchBar = () => {
         </div>
         <Button
           label="Buscar vagas"
-          onClick={handleOnSearch}
+          onClick={handleSearch}
           backgroundColor="yellow"
           fontWeight="600"
         />
