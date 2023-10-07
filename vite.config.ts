@@ -19,6 +19,7 @@ export default defineConfig({
       '@types': '/src/types',
       '@services': '/src/services',
       '@styles': '/src/styles',
+      '@contexts': '/src/contexts',
     },
   },
   plugins: [react()],
