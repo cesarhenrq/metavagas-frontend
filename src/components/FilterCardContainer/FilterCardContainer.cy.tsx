@@ -55,15 +55,11 @@ describe('<FilterCardContainer />', () => {
   });
 
   it('should filter cards wrapper has display: flex', () => {
-    cy.getByClassLike('filter-cards').should('have.css', 'display', 'flex');
+    cy.getByClassLike('filter-cards').should('have.css', 'display', 'grid');
   });
 
   it('should filter cards wrapper has gap: 1.5rem', () => {
-    cy.getByClassLike('filter-cards').should('have.css', 'gap', '24px');
-  });
-
-  it('should filter cards wrapper has flex-wrap: wrap', () => {
-    cy.getByClassLike('filter-cards').should('have.css', 'flex-wrap', 'wrap');
+    cy.getByClassLike('filter-cards').should('have.css', 'gap', '30px');
   });
 
   it('should filter cards wrapper has margin-top: 1.875rem', () => {

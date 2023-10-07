@@ -14,6 +14,8 @@ export const FilterCardContainer = styled.div`
     justify-content: space-between;
 
     .text-and-navigation {
+      width: 68.4%;
+
       .text {
         justify-content: flex-start;
       }
@@ -21,13 +23,27 @@ export const FilterCardContainer = styled.div`
   }
 
   .filter-cards {
-    display: flex;
-    gap: 1.5rem;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(23.1%, 1fr));
+    grid-gap: 1.875rem;
     margin-top: 1.875rem;
+  }
 
-    .filter-card {
-      width: 16.875rem;
+  @media (max-width: 1300px) {
+    .filter-cards {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .filter-cards {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .filter-cards {
+      grid-template-columns: repeat(1, 1fr);
     }
   }
 `;

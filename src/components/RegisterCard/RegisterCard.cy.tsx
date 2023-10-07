@@ -17,10 +17,6 @@ describe('<RegisterCard />', () => {
     cy.getByCy('register-card').should('have.css', 'margin-top', '32px');
   });
 
-  it('should register card has width: 16.875rem', () => {
-    cy.getByCy('register-card').should('have.css', 'width', '270px');
-  });
-
   it('should base card has padding-top: 2rem', () => {
     cy.getByCy('base-card').should('have.css', 'padding-top', '32px');
   });
