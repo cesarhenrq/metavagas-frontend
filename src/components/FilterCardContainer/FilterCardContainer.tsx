@@ -7,8 +7,11 @@ import FilterCard from '@components/FilterCard';
 
 import useResource from '@hooks/useResource';
 import useFetchResource from '@hooks/useFetchResource';
+import useFilterHandling from '@hooks/useFilterHandling';
 
 import * as S from './styles';
+
+import removeDuplicate from '@utils/functions';
 
 const technologies = [
   'JavaScript',
@@ -31,8 +34,10 @@ const FilterCardContainer = () => {
   /* const [technologies, technologyService] =
     useResource<Technology>('technologies'); */
 
-  const roles = [...new Set(vacancies?.map(vacancy => vacancy.vacancyRole))];
-  const locations = [...new Set(vacancies?.map(vacancy => vacancy.location))];
+  const { handleFilter } = useFilterHandling();
+
+  const roles = removeDuplicate(vacancies, 'vacancyRole') as string[];
+  const locations = removeDuplicate(vacancies, 'location') as string[];
 
   useFetchResource(vacancyService);
   //useFetchResource(technologyService);
@@ -77,7 +82,7 @@ const FilterCardContainer = () => {
           <FilterCard
             key={data}
             filter={data}
-            onClick={() => console.log('clicked')}
+            onClick={() => handleFilter(activeTab, data)}
           />
         ))}
       </div>
