@@ -11,11 +11,11 @@ type BaseLayoutProps = {
 
 const BaseLayout = ({ children }: BaseLayoutProps) => {
   return (
-    <>
+    <S.BaseLayout>
       <Header />
       <S.Main data-cy="main-content">{children}</S.Main>
       <Footer />
-    </>
+    </S.BaseLayout>
   );
 };
 

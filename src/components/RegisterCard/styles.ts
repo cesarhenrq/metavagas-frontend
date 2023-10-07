@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const RegisterCard = styled.div`
   margin-top: 2rem;
-  width: 16.875rem;
+  width: 23.1%;
 
   .base-card {
     padding-top: 2rem;

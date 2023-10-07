@@ -7,19 +7,21 @@ export const Container = styled.div`
   background-color: var(--white);
   box-shadow: 0px 1rem 2rem rgba(207.7, 207.7, 207.7, 0.2);
   border-radius: 1rem;
-  margin: 0 8.5rem;
 
   .search-form {
     display: flex;
     align-items: end;
+    justify-content: space-between;
     gap: 1.5rem;
     margin-bottom: 1rem;
+    width: 100%;
 
     .input-with-icon {
-      width: 27rem;
+      width: 100%;
     }
 
     .form-group {
+      width: 38.46%;
       label {
         p {
           justify-content: flex-start;

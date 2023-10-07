@@ -31,7 +31,9 @@ describe('MetaVagas App', () => {
     });
 
     it('should navigate to register page when click on "cadastro gratuito"', () => {
-      cy.contains('cadastro gratuito').click();
+      cy.getByCy('register-card')
+        .contains('cadastro gratuito')
+        .click({ force: true });
       cy.location('pathname').should('eq', '/register');
     });
 
