@@ -6,11 +6,21 @@ import userEvent from '@testing-library/user-event';
 
 import SearchBar from './SearchBar';
 
+import { BrowserRouter } from 'react-router-dom';
+
+import FiltersProvider from '@contexts/filters';
+
 describe('<SearchBar />', () => {
   let container: HTMLElement;
 
   beforeEach(() => {
-    container = render(<SearchBar />).container;
+    container = render(
+      <FiltersProvider>
+        <BrowserRouter>
+          <SearchBar />
+        </BrowserRouter>
+      </FiltersProvider>,
+    ).container;
 
     jest.resetAllMocks();
   });

@@ -4,12 +4,16 @@ import { BrowserRouter } from 'react-router-dom';
 
 import FilterCardContainer from './FilterCardContainer';
 
+import FiltersProvider from '@contexts/filters';
+
 describe('<FilterCardContainer />', () => {
   beforeEach(() => {
     render(
-      <BrowserRouter>
-        <FilterCardContainer />
-      </BrowserRouter>,
+      <FiltersProvider>
+        <BrowserRouter>
+          <FilterCardContainer />
+        </BrowserRouter>
+      </FiltersProvider>,
     );
   });
 
