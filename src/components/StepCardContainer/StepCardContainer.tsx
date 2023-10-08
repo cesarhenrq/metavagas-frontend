@@ -42,8 +42,8 @@ const StepCardContainer = () => {
       </div>
 
       <div className="step-cards">
-        {steps.map(stepCardProps => (
-          <StepCard {...stepCardProps} />
+        {steps.map((stepCardProps, index) => (
+          <StepCard {...stepCardProps} key={index} />
         ))}
       </div>
     </S.StepCardContainer>
