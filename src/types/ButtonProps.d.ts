@@ -1,5 +1,6 @@
 type ButtonProps = TextProps & {
   backgroundColor?: BackgroundColor;
   borderColor?: BorderColor;
-  onClick: () => void;
+  onClick?: () => void;
+  type?: string;
 };
