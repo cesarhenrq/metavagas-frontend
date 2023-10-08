@@ -2,14 +2,16 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 import BaseLayout from '@pages/BaseLayout';
 import InitialPage from '@pages/InitialPage';
+import LoginPage from '@pages/LoginPage';
+import RegisterPage from '@pages/RegisterPage';
 
 const Router = () => (
   <BrowserRouter>
     <BaseLayout>
       <Routes>
         <Route element={<InitialPage />} index />
-        <Route path="login" element={<div>Login Page</div>} />
-        <Route path="register" element={<div>Register Page</div>} />
+        <Route path="login" element={<LoginPage />} />
+        <Route path="register" element={<RegisterPage />} />
         <Route path="vacancies" element={<div>Vacancies Page</div>} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>

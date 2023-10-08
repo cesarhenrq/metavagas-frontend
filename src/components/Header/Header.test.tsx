@@ -3,18 +3,16 @@ import { render, screen } from '@testing-library/react';
 import { expect } from '@jest/globals';
 import '@testing-library/jest-dom/extend-expect';
 
-import { BrowserRouter } from 'react-router-dom';
-
 import Header from './Header';
+
+import Sut from '@utils/helpers';
 
 describe('<Header />', () => {
   beforeEach(() => {
     render(
-      <>
-        <BrowserRouter>
-          <Header />
-        </BrowserRouter>
-      </>,
+      <Sut>
+        <Header />
+      </Sut>,
     );
   });
 

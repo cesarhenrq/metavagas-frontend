@@ -1,20 +1,16 @@
 import BaseLayout from './BaseLayout';
-import GlobalStyle from '@styles/global';
 
-import { BrowserRouter } from 'react-router-dom';
-
-const Sut = () => (
-  <BrowserRouter>
-    <GlobalStyle />
-    <BaseLayout>
-      <div>children</div>
-    </BaseLayout>
-  </BrowserRouter>
-);
+import Sut from '@utils/helpers';
 
 describe('<BaseLayout />', () => {
   beforeEach(() => {
-    cy.mount(<Sut />);
+    cy.mount(
+      <Sut>
+        <BaseLayout>
+          <div>children</div>
+        </BaseLayout>
+      </Sut>,
+    );
   });
 
   it('should main content has padding-top: 6.4375rem', () => {

@@ -1,15 +1,13 @@
 import RegisterCard from './RegisterCard';
-import GlobalStyle from '@styles/global';
 
-import { BrowserRouter } from 'react-router-dom';
+import Sut from '@utils/helpers';
 
 describe('<RegisterCard />', () => {
   beforeEach(() => {
     cy.mount(
-      <BrowserRouter>
-        <GlobalStyle />
+      <Sut>
         <RegisterCard />
-      </BrowserRouter>,
+      </Sut>,
     );
   });
 

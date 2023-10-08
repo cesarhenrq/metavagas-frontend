@@ -2,18 +2,18 @@ import { render, screen } from '@testing-library/react';
 
 import BaseLayout from './BaseLayout';
 
-import { BrowserRouter } from 'react-router-dom';
+import Sut from '@utils/helpers';
 
 describe('<BaseLayout />', () => {
   beforeEach(() => {
     render(
-      <BrowserRouter>
+      <Sut>
         <BaseLayout>
           <div data-cy="children">
             <p>children</p>
           </div>
         </BaseLayout>
-      </BrowserRouter>,
+      </Sut>,
     );
   });
 

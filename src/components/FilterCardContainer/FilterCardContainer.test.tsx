@@ -1,19 +1,15 @@
 import { render, screen } from '@testing-library/react';
 
-import { BrowserRouter } from 'react-router-dom';
+import Sut from '@utils/helpers';
 
 import FilterCardContainer from './FilterCardContainer';
-
-import FiltersProvider from '@contexts/filters';
 
 describe('<FilterCardContainer />', () => {
   beforeEach(() => {
     render(
-      <FiltersProvider>
-        <BrowserRouter>
-          <FilterCardContainer />
-        </BrowserRouter>
-      </FiltersProvider>,
+      <Sut>
+        <FilterCardContainer />
+      </Sut>,
     );
   });
 
