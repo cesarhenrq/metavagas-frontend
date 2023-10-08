@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-const useFetchResource = (service: Service) => {
+const useFetchResource = <T>(service: Service<T>) => {
   useEffect(() => {
     service.get();
   }, []);
