@@ -24,4 +24,8 @@ describe('<LoginPage />', () => {
   it('should render <AuthSubHeader /> with text "FAÇA SEU LOGIN"', () => {
     screen.getByText('FAÇA SEU LOGIN');
   });
+
+  it('should render <StepCardContainer />', () => {
+    screen.getByTestId('step-card-container');
+  });
 });

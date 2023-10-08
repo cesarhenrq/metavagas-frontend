@@ -24,4 +24,8 @@ describe('<RegisterPage />', () => {
   it('should render <AuthSubHeader /> with text "CADASTRA-SE"', () => {
     screen.getByText('CADASTRA-SE');
   });
+
+  it('should render <StepCardContainer />', () => {
+    screen.getByTestId('step-card-container');
+  });
 });
