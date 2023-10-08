@@ -1,21 +1,14 @@
 import FilterCardContainer from './FilterCardContainer';
-import GlobalStyle from '@styles/global';
-import { BrowserRouter } from 'react-router-dom';
 
-import FiltersProvider from '@contexts/filters';
-
-const Sut = () => (
-  <FiltersProvider>
-    <BrowserRouter>
-      <GlobalStyle />
-      <FilterCardContainer />
-    </BrowserRouter>
-  </FiltersProvider>
-);
+import Sut from '@utils/helpers';
 
 describe('<FilterCardContainer />', () => {
   beforeEach(() => {
-    cy.mount(<Sut />);
+    cy.mount(
+      <Sut>
+        <FilterCardContainer />
+      </Sut>,
+    );
   });
 
   it('should has background-color: var(--purple-dark)', () => {

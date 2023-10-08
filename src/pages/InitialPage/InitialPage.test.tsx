@@ -1,17 +1,15 @@
 import { render, screen } from '@testing-library/react';
 
-import { BrowserRouter } from 'react-router-dom';
-
 import InitialPage from './InitialPage';
+
+import Sut from '@utils/helpers';
 
 describe('<InitialPage />', () => {
   beforeEach(() => {
     render(
-      <>
-        <BrowserRouter>
-          <InitialPage />
-        </BrowserRouter>
-      </>,
+      <Sut>
+        <InitialPage />
+      </Sut>,
     );
   });
 

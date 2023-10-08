@@ -1,17 +1,14 @@
 import Footer from './Footer';
-import GlobalStyle from '@styles/global';
-import { BrowserRouter } from 'react-router-dom';
 
-const Sut = () => (
-  <BrowserRouter>
-    <GlobalStyle />
-    <Footer />
-  </BrowserRouter>
-);
+import Sut from '@utils/helpers';
 
 describe('<Footer />', () => {
   beforeEach(() => {
-    cy.mount(<Sut />);
+    cy.mount(
+      <Sut>
+        <Footer />
+      </Sut>,
+    );
   });
 
   it('should footer has background-color: var(--purple-dark)', () => {

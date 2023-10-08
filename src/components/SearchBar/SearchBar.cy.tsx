@@ -1,22 +1,13 @@
 import SearchBar from './SearchBar';
 
-import GlobalStyle from '@styles/global';
-
-import { BrowserRouter } from 'react-router-dom';
-
-import FiltersProvider from '@contexts/filters';
+import Sut from '@utils/helpers';
 
 describe('<SearchBar />', () => {
   it('should not render with text "Buscas mais recentes" when search some location', () => {
     cy.mount(
-      <>
-        <GlobalStyle />
-        <FiltersProvider>
-          <BrowserRouter>
-            <SearchBar />
-          </BrowserRouter>
-        </FiltersProvider>
-      </>,
+      <Sut>
+        <SearchBar />
+      </Sut>,
     );
 
     cy.get('input[placeholder="Localização"]').type('test');

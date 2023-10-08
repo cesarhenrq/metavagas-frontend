@@ -9,6 +9,7 @@ export default {
     '^@components/(.*)$': '<rootDir>/src/components/$1',
     '^@assets/(.*)$': '<rootDir>/src/assets/$1',
     '^@hooks/(.*)$': '<rootDir>/src/hooks/$1',
+    '^@styles/(.*)$': '<rootDir>/src/styles/$1',
     '^@services/(.*)$': '<rootDir>/src/services/$1',
     '^@contexts/(.*)$': '<rootDir>/src/contexts/$1',
     '^@utils/(.*)$': '<rootDir>/src/utils/$1',

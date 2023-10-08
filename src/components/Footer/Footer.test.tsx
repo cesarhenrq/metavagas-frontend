@@ -2,16 +2,14 @@ import { render, screen } from '@testing-library/react';
 
 import Footer from './Footer';
 
-import { BrowserRouter } from 'react-router-dom';
+import Sut from '@utils/helpers';
 
 describe('<Footer />', () => {
   beforeEach(() => {
     render(
-      <>
-        <BrowserRouter>
-          <Footer />
-        </BrowserRouter>
-      </>,
+      <Sut>
+        <Footer />
+      </Sut>,
     );
   });
 
