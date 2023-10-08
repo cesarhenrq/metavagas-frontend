@@ -1,1 +1,1 @@
-type FontSize = 'normal' | 'small' | 'xsmall' | 'medium' | 'large' | 'xlarge';
+type FontSize = 'normal' | 'small' | 'xsmall' | 'medium' | 'xmedium' | 'large' | 'xlarge';
