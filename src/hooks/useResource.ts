@@ -3,7 +3,7 @@ import { useState } from 'react';
 import httpClient from '@services/httpClient';
 import { AxiosError } from 'axios';
 
-const useResource = <T>(resouceUrl: string): [T[], Service] => {
+const useResource = <T>(resouceUrl: string): [T[], Service<T>] => {
   const [resources, setResources] = useState<T[]>([]);
 
   const get = async () => {
@@ -17,8 +17,25 @@ const useResource = <T>(resouceUrl: string): [T[], Service] => {
     }
   };
 
-  const service: Service = {
+  const post = async (resource: T, token?: string | null) => {
+    try {
+      const response = await httpClient.post<T>(resouceUrl, resource, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      return response.data;
+    } catch (error: unknown) {
+      if (error instanceof AxiosError) {
+        throw error;
+      }
+    }
+  };
+
+  const service: Service<T> = {
     get,
+    post,
   };
 
   return [resources, service];

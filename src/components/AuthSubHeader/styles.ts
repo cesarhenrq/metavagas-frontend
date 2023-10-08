@@ -5,7 +5,7 @@ export const AuthSubHeader = styled.div`
   flex-direction: column;
   width: 100%;
   background-color: var(--purple-dark);
-  padding: 6.25rem 8.4375rem;
+  padding: 10rem 8.4375rem;
 
   .text {
     justify-content: flex-start;

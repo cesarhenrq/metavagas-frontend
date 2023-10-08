@@ -35,7 +35,7 @@ const useSearchHandling = (
 
   const navigate = useNavigate();
 
-  useFetchResource(vacanciesService);
+  useFetchResource<Vacancy>(vacanciesService);
 
   const roles = removeDuplicate(vacancies, 'vacancyRole');
 

@@ -1,12 +1,10 @@
-import { render, screen } from '@testing-library/react';
-
 import RegisterPage from './RegisterPage';
 
 import Sut from '@utils/helpers';
 
 describe('<RegisterPage />', () => {
   beforeEach(() => {
-    render(
+    cy.mount(
       <Sut>
         <RegisterPage />
       </Sut>,
@@ -14,18 +12,22 @@ describe('<RegisterPage />', () => {
   });
 
   it('should be defined', () => {
-    screen.getByTestId('register-page');
+    cy.getByCy('register-page');
   });
 
   it('should render <AuthSubHeader />', () => {
-    screen.getByTestId('auth-sub-header');
+    cy.getByCy('auth-sub-header');
   });
 
   it('should render <AuthSubHeader /> with text "CADASTRA-SE"', () => {
-    screen.getByText('CADASTRA-SE');
+    cy.getByCy('register-page').contains('CADASTRA-SE');
   });
 
   it('should render <StepCardContainer />', () => {
-    screen.getByTestId('step-card-container');
+    cy.getByCy('step-card-container');
+  });
+
+  it('should render <RegisterForm />', () => {
+    cy.getByCy('register-form-container');
   });
 });
