@@ -1,17 +1,15 @@
 import { render, screen } from '@testing-library/react';
 
-import { BrowserRouter } from 'react-router-dom';
-
 import RegisterCard from './RegisterCard';
+
+import Sut from '@utils/helpers';
 
 describe('<RegisterCard />', () => {
   beforeEach(() => {
     render(
-      <>
-        <BrowserRouter>
-          <RegisterCard />
-        </BrowserRouter>
-      </>,
+      <Sut>
+        <RegisterCard />
+      </Sut>,
     );
   });
 
