@@ -1,12 +1,10 @@
-import { render, screen } from '@testing-library/react';
-
 import LoginPage from './LoginPage';
 
 import Sut from '@utils/helpers';
 
 describe('<LoginPage />', () => {
   beforeEach(() => {
-    render(
+    cy.mount(
       <Sut>
         <LoginPage />
       </Sut>,
@@ -14,18 +12,22 @@ describe('<LoginPage />', () => {
   });
 
   it('should be defined', () => {
-    screen.getByTestId('login-page');
+    cy.getByCy('login-page');
   });
 
   it('should render <AuthSubHeader />', () => {
-    screen.getByTestId('auth-sub-header');
+    cy.getByCy('auth-sub-header');
   });
 
   it('should render <AuthSubHeader /> with text "FAÇA SEU LOGIN"', () => {
-    screen.getByText('FAÇA SEU LOGIN');
+    cy.getByCy('login-page').contains('FAÇA SEU LOGIN');
   });
 
   it('should render <StepCardContainer />', () => {
-    screen.getByTestId('step-card-container');
+    cy.getByCy('step-card-container');
+  });
+
+  it('should render <LoginForm />', () => {
+    cy.getByCy('login-form-container');
   });
 });
