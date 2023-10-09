@@ -15,7 +15,7 @@ const AuthSubHeader = ({ authLabel }: AuthSubHeaderProps) => {
   );
 
   return (
-    <S.AuthSubHeader data-cy="auth-sub-header">
+    <S.AuthSubHeader data-cy="auth-sub-header" className="auth-sub-header">
       <Text label={authLabel} fontSize="medium" fontColor="white" />
       <Text
         label={largerText}

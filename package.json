@@ -18,7 +18,8 @@
     "cy:run-e2e": "server-test 3000 'cypress run --e2e --browser chrome'",
     "cy:open-ct": "cypress open --component --browser chrome",
     "cy:run-ct": "cypress run --component --browser chrome",
-    "cy:run-ct-fast": "yarn cy:run-ct --config video=false screenshot=false"
+    "cy:run-ct-fast": "yarn cy:run-ct --config video=false screenshot=false",
+    "ci-pipeline": "yarn validate:ci && yarn test && yarn cy:run-ct-fast && yarn cy:run-e2e"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.1",
