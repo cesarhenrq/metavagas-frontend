@@ -9,7 +9,9 @@
       "@hooks/*": ["hooks/*"],
       "@types/*": ["types/*"],
       "@services/*": ["services/*"],
-      "@assets/*": ["assets/*"]
+      "@assets/*": ["assets/*"],
+      "@styles/*": ["styles/*"],
+      "@contexts/*": ["contexts/*"]
     },
     "target": "ESNext",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
