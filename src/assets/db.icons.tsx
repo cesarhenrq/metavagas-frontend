@@ -308,7 +308,7 @@ function Arrow({ fill, width, height, onClick }: IconProps) {
   );
 }
 
-function DownArrow({ fill, width, height }: IconProps) {
+function DownArrow({ fill, width, height, onClick }: IconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -316,6 +316,9 @@ function DownArrow({ fill, width, height }: IconProps) {
       height={height}
       fill="none"
       viewBox="0 0 16 16"
+      data-cy="down-arrow-icon"
+      className="down-arrow-icon"
+      onClick={onClick}
     >
       <path
         fill={`var(--${fill})`}

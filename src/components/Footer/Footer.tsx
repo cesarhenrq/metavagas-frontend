@@ -1,4 +1,8 @@
+import { useContext } from 'react';
+
 import { useNavigate } from 'react-router';
+
+import { userContext } from '@contexts/user';
 
 import Text from '@components/Text';
 import Button from '@components/Button';
@@ -20,6 +24,8 @@ const adressText = (
 );
 
 const Footer = () => {
+  const { user } = useContext(userContext);
+
   const navigate = useNavigate();
 
   const redirect = (path: string) => {
@@ -27,7 +33,7 @@ const Footer = () => {
   };
 
   return (
-    <S.Footer data-cy="footer">
+    <S.Footer data-cy="footer" isButtonsVisible={Boolean(!user)}>
       <S.Line data-cy="line" />
       <div className="text-container" data-cy="logo">
         <Text label="meta" fontColor="white" fontSize="large" />
