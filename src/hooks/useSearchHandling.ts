@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 import useResource from '@hooks/useResource';
 import useFetchResource from '@hooks/useFetchResource';
@@ -27,13 +27,12 @@ const useSearchHandling = (
   location: string,
   addRecentSearch: (recentSearch: string) => void,
 ) => {
-  const { filters, filtersDispatch } = useContext(filtersContext);
-
-  console.log(filters);
+  const { filtersDispatch } = useContext(filtersContext);
 
   const [vacancies, vacanciesService] = useResource<Vacancy>('vacancies');
 
   const navigate = useNavigate();
+  const { pathname } = useLocation();
 
   useFetchResource<Vacancy>(vacanciesService);
 
@@ -51,7 +50,7 @@ const useSearchHandling = (
       filtersDispatch(actions.addGeralQuery(positionOrTech));
     }
 
-    navigate('/vacancies');
+    pathname === '/' && navigate('/vacancies');
   };
 
   return handleSearch;

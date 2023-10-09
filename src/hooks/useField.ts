@@ -5,13 +5,13 @@ type UseFieldResult = [
     type: string;
     value: string;
     onChange: (event: ChangeEvent<HTMLInputElement>) => void;
-    name: string;
+    id: string;
   },
   () => void,
   React.Dispatch<React.SetStateAction<string>>,
 ];
 
-const useField = (type: string, name: string): UseFieldResult => {
+const useField = (type: string, id: string): UseFieldResult => {
   const [value, setValue] = useState('');
 
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -27,7 +27,7 @@ const useField = (type: string, name: string): UseFieldResult => {
       type,
       value,
       onChange,
-      name,
+      id,
     },
     reset,
     setValue,

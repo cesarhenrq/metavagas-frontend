@@ -1,3 +1,5 @@
+import { useLocation } from 'react-router-dom';
+
 import Text from './../Text';
 import InputWithIcon from './../InputWithIcon';
 import Button from './../Button';
@@ -12,6 +14,8 @@ const SearchBar = () => {
   const [location] = useField('text', 'location');
   const [positionOrTech, , setPositionOrTech] = useField('text', 'magnifier');
 
+  const { pathname } = useLocation();
+
   const [recentSearches, addRecentSearch] = useRecentSearches();
 
   const handleSearch = useSearchHandling(
@@ -22,6 +26,28 @@ const SearchBar = () => {
 
   const handleRecentSearch = (value: string) => {
     setPositionOrTech(value);
+  };
+
+  const calculateBackgroundColor = (search: string) => {
+    if (search === positionOrTech.value) {
+      return 'yellow';
+    } else if (pathname === '/vacancies') {
+      return 'purple-dark';
+    } else {
+      return 'white';
+    }
+  };
+
+  const calculateBorderColor = (search: string) => {
+    if (search === positionOrTech.value && pathname === '/vacancies') {
+      return 'white';
+    } else if (search === positionOrTech.value && pathname === '/') {
+      return 'yellow';
+    } else if (pathname === '/') {
+      return 'purple-light';
+    } else {
+      return 'purple-light';
+    }
   };
 
   return (
@@ -56,7 +82,9 @@ const SearchBar = () => {
       </div>
       {recentSearches && (
         <div className="recent-search">
-          <Text label="Buscas mais recentes:" fontSize="small" />
+          {pathname === '/vacancies' ? null : (
+            <Text label="Buscas mais recentes:" fontSize="small" />
+          )}
           <div className="search">
             {recentSearches.map(search => (
               <Button
@@ -64,9 +92,11 @@ const SearchBar = () => {
                 onClick={() => handleRecentSearch(search)}
                 key={search}
                 fontSize="small"
-                fontColor="purple-light"
-                backgroundColor="white"
-                borderColor="purple-light"
+                fontColor={
+                  search === positionOrTech.value ? 'white' : 'purple-light'
+                }
+                backgroundColor={calculateBackgroundColor(search)}
+                borderColor={calculateBorderColor(search)}
               />
             ))}
           </div>
