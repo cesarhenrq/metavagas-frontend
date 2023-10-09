@@ -10,6 +10,7 @@ export const userDispatcher = (
 ): User | null => {
   switch (action.type) {
     case 'SET_USER':
+      if (!action.payload) return state;
       return {
         ...action.payload,
       };

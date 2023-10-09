@@ -1,9 +1,11 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 
 import Text from '@components/Text';
 import FilterNavigation from '@components/FilterNavigation';
 import RegisterCard from '@components/RegisterCard';
 import FilterCard from '@components/FilterCard';
+
+import { userContext } from '@contexts/user';
 
 import useResource from '@hooks/useResource';
 import useFetchResource from '@hooks/useFetchResource';
@@ -29,6 +31,8 @@ const technologies = [
 
 const FilterCardContainer = () => {
   const [activeTab, setActiveTab] = useState('technology');
+
+  const { user } = useContext(userContext);
 
   const [vacancies, vacancyService] = useResource<Vacancy>('vacancies');
   /* const [technologies, technologyService] =
@@ -75,7 +79,7 @@ const FilterCardContainer = () => {
           />
           <FilterNavigation activeTab={activeTab} onClick={handleCLick} />
         </div>
-        <RegisterCard />
+        {!user && <RegisterCard />}
       </div>
       <div className="filter-cards" data-cy={`filter-cards-${activeTab}`}>
         {dataToRender.map(data => (

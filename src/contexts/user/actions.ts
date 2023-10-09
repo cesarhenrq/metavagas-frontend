@@ -1,6 +1,6 @@
 export type Action = {
   type: string;
-  payload: User;
+  payload: User | null;
 };
 
 export const setUser = (user: User) => {

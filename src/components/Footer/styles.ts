@@ -1,6 +1,11 @@
+/* eslint-disable indent */
 import styled from 'styled-components';
 
-export const Footer = styled.footer`
+type FooterProps = {
+  isButtonsVisible: boolean;
+};
+
+export const Footer = styled.footer<FooterProps>`
   position: relative;
   background-color: var(--purple-dark);
   padding: 4.375rem 8.4375rem 6.875rem 8.4375rem;
@@ -18,6 +23,8 @@ export const Footer = styled.footer`
   }
 
   .button-container {
+    visibility: ${({ isButtonsVisible }) =>
+      isButtonsVisible ? 'visible' : 'hidden'};
     display: flex;
     align-items: center;
     gap: 1.5rem;
