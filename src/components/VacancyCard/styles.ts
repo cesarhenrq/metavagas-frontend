@@ -9,10 +9,10 @@ export const Card = styled.div`
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
 
   .text-container {
     display: flex;
+    margin-bottom: 0.75rem;
     gap: 0.438rem;
   }
 
@@ -23,6 +23,5 @@ export const Container = styled.div`
 
 export const Link = styled.a`
   display: flex;
-  gap: 0.438rem;
   text-decoration: none;
 `;

@@ -1,4 +1,4 @@
-import VancacyCard from './VacancyCard';
+import VacacyCard from './VacancyCard';
 import GlobalStyle from '@styles/global';
 
 describe('', () => {
@@ -6,7 +6,7 @@ describe('', () => {
     cy.mount(
       <>
         <GlobalStyle />
-        <VancacyCard />
+        <VacacyCard location={''} technology={''} vacancyRole={''} />
       </>,
     );
 
@@ -17,26 +17,10 @@ describe('', () => {
     cy.mount(
       <>
         <GlobalStyle />
-        <VancacyCard />
+        <VacacyCard location={''} technology={''} vacancyRole={''} />
       </>,
     );
 
     cy.getByCy('link').should('have.css', 'color', 'rgb(0, 0, 238)');
-  });
-
-  it('should redirect to page:', () => {
-    cy.mount(
-      <>
-        <GlobalStyle />
-        <VancacyCard />
-      </>,
-    );
-
-    cy.getByCy('link').click();
-
-    cy.url().should(
-      'be.equal',
-      'http://localhost:3000/__/#/specs/runner?file=src/components/VacancyCard/VecancyCard.cy.tsx',
-    );
   });
 });

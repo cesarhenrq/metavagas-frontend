@@ -7,6 +7,7 @@ type Vacancy = {
   vacancyRole: string;
   vacancyType: string;
   wage: number;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: string;
+  updatedAt: string;
+  technology: string;
 };
