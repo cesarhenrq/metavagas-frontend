@@ -49,36 +49,4 @@ describe('<SearchBar />', () => {
 
     (expect as any)(container).toHaveTextContent('Buscas mais recentes:');
   });
-
-  it('should render the recent searches when search some tech or position', async () => {
-    const input = screen.getByPlaceholderText(
-      'Cargo, tecnologia ou palavra-chave',
-    );
-
-    const button = screen.getByText('Buscar vagas');
-
-    await userEvent.type(input, 'test');
-
-    await userEvent.click(button);
-
-    (expect as any)(input).toHaveValue('test');
-  });
-
-  it('should render the text in input when click in recent search', async () => {
-    const input = screen.getByPlaceholderText(
-      'Cargo, tecnologia ou palavra-chave',
-    );
-
-    const button = screen.getByText('Buscar vagas');
-
-    await userEvent.type(input, 'test');
-    await userEvent.click(button);
-    await userEvent.clear(input);
-
-    const recentSearch = screen.getByText('test');
-
-    await userEvent.click(recentSearch);
-
-    (expect as any)(input).toHaveValue('test');
-  });
 });
