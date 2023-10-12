@@ -6,7 +6,8 @@ export type Filters = {
   vacancyTypes: string[];
   companySizes: string[];
   workArrangements: string[];
-  wageRange: number[];
+  minWage: string;
+  maxWage: string;
   levels: string[];
   role: string;
   geralQuery: string;
@@ -18,7 +19,8 @@ export const initialState: Filters = {
   vacancyTypes: [],
   companySizes: [],
   workArrangements: [],
-  wageRange: [],
+  minWage: '',
+  maxWage: '',
   levels: [],
   role: '',
   geralQuery: '',
@@ -30,7 +32,6 @@ export const filtersDispatcher = (
 ): Filters => {
   switch (action.type) {
     case 'ADD_LOCATION':
-      if (typeof action.payload !== 'string') return state;
       return {
         ...state,
         location: action.payload,
@@ -41,7 +42,6 @@ export const filtersDispatcher = (
         location: '',
       };
     case 'ADD_TECHNOLOGY':
-      if (typeof action.payload !== 'string') return state;
       return {
         ...state,
         technologies: [...state.technologies, action.payload],
@@ -54,7 +54,6 @@ export const filtersDispatcher = (
         ),
       };
     case 'ADD_VACANCY_TYPE':
-      if (typeof action.payload !== 'string') return state;
       return {
         ...state,
         vacancyTypes: [...state.vacancyTypes, action.payload],
@@ -67,7 +66,6 @@ export const filtersDispatcher = (
         ),
       };
     case 'ADD_COMPANY_SIZE':
-      if (typeof action.payload !== 'string') return state;
       return {
         ...state,
         companySizes: [...state.companySizes, action.payload],
@@ -80,7 +78,6 @@ export const filtersDispatcher = (
         ),
       };
     case 'ADD_WORK_ARRANGEMENT':
-      if (typeof action.payload !== 'string') return state;
       return {
         ...state,
         workArrangements: [...state.workArrangements, action.payload],
@@ -92,19 +89,7 @@ export const filtersDispatcher = (
           workArrangement => workArrangement !== action.payload,
         ),
       };
-    case 'ADD_WAGE_RANGE':
-      if (typeof action.payload !== 'number') return state;
-      return {
-        ...state,
-        wageRange: action.payload,
-      };
-    case 'REMOVE_WAGE_RANGE':
-      return {
-        ...state,
-        wageRange: [],
-      };
     case 'ADD_LEVEL':
-      if (typeof action.payload !== 'string') return state;
       return {
         ...state,
         levels: [...state.levels, action.payload],
@@ -115,7 +100,6 @@ export const filtersDispatcher = (
         levels: state.levels.filter(level => level !== action.payload),
       };
     case 'ADD_ROLE':
-      if (typeof action.payload !== 'string') return state;
       return {
         ...state,
         role: action.payload,
@@ -125,8 +109,17 @@ export const filtersDispatcher = (
         ...state,
         role: '',
       };
+    case 'ADD_MIN_WAGE':
+      return {
+        ...state,
+        minWage: action.payload,
+      };
+    case 'ADD_MAX_WAGE':
+      return {
+        ...state,
+        maxWage: action.payload,
+      };
     case 'ADD_GERAL_QUERY':
-      if (typeof action.payload !== 'string') return state;
       return {
         ...state,
         geralQuery: action.payload,
@@ -136,6 +129,8 @@ export const filtersDispatcher = (
         ...state,
         geralQuery: '',
       };
+    case 'RESET_FILTERS':
+      return initialState;
     default:
       return state;
   }

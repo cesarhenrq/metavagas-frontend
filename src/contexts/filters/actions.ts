@@ -1,6 +1,6 @@
 export type Action = {
   type: string;
-  payload: string | string[] | number[];
+  payload: string;
 };
 
 export const addLocation = (location: string) => {
@@ -73,20 +73,6 @@ export const removeWorkArrangement = (workArrangement: string) => {
   };
 };
 
-export const addWageRange = (wageRange: number[]) => {
-  return {
-    type: 'ADD_WAGE_RANGE',
-    payload: wageRange,
-  };
-};
-
-export const removeWageRange = (wageRange: number[]) => {
-  return {
-    type: 'REMOVE_WAGE_RANGE',
-    payload: wageRange,
-  };
-};
-
 export const addLevel = (level: string) => {
   return {
     type: 'ADD_LEVEL',
@@ -115,6 +101,20 @@ export const removeRole = (role: string) => {
   };
 };
 
+export const addMinWage = (minWage: string) => {
+  return {
+    type: 'ADD_MIN_WAGE',
+    payload: minWage,
+  };
+};
+
+export const addMaxWage = (maxWage: string) => {
+  return {
+    type: 'ADD_MAX_WAGE',
+    payload: maxWage,
+  };
+};
+
 export const addGeralQuery = (geralQuery: string) => {
   return {
     type: 'ADD_GERAL_QUERY',
@@ -126,5 +126,12 @@ export const removeGeralQuery = (geralQuery: string) => {
   return {
     type: 'REMOVE_GERAL_QUERY',
     payload: geralQuery,
+  };
+};
+
+export const resetFilters = () => {
+  return {
+    type: 'RESET_FILTERS',
+    payload: '',
   };
 };
