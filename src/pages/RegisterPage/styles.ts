@@ -7,8 +7,7 @@ export const RegisterPage = styled.div`
     position: absolute;
     z-index: 1;
     top: 60px;
-    left: 788px;
     right: 136px;
-    width: calc(100% - 924px);
+    width: 517px;
   }
 `;
