@@ -5,6 +5,7 @@ type FontColor =
   | 'white'
   | 'gray'
   | 'gray-light'
-  | 'dark-grey'
+  | 'dark-gray'
+  | 'gray-medium'
   | 'yellow'
   | 'purple-dark-secondary';

@@ -39,7 +39,7 @@ const RecentVacancies = () => {
         {vacanciesToRender.map(data => (
           <VacancyCard
             location={data.location}
-            technology={data.technology}
+            technologies={data.technology}
             vacancyRole={data.vacancyRole}
           />
         ))}
