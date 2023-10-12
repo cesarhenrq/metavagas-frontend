@@ -40,11 +40,13 @@ const Header = () => {
             backgroundColor="purple-dark"
             fontColor="white"
             borderColor="white"
+            fontWeight="500"
           />
           <Button
             label="Cadastrar-se gratuitamente"
             onClick={() => redirect('/register')}
             borderColor="yellow"
+            fontWeight="500"
           />
         </div>
       )}
