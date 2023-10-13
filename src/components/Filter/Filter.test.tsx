@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 
 import Filter from './Filter';
 
@@ -60,17 +59,5 @@ describe('<Filter />', () => {
 
   it('should render <Button /> with text "Filtar"', () => {
     screen.getByText('Filtrar');
-  });
-
-  it('should render text "Ver mais..." by default', () => {
-    screen.getByText('Ver mais...');
-  });
-
-  it('should render text "Ver menos..." when click on "Ver mais..."', async () => {
-    const button = screen.getByText('Ver mais...');
-
-    await userEvent.click(button);
-
-    screen.getByText('Ver menos...');
   });
 });

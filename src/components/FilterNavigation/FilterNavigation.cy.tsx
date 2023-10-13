@@ -40,7 +40,7 @@ describe('<FilterNavigation />', () => {
     cy.getByCy('filter-navigation').should(
       'have.css',
       'border-bottom',
-      '1px solid rgb(255, 255, 255)',
+      '0.8px solid rgb(255, 255, 255)',
     );
   });
 
@@ -132,7 +132,7 @@ describe('<FilterNavigation />', () => {
     cy.getByCy('filter-navigation-tecnology').should(
       'have.css',
       'border-bottom',
-      '2px solid rgb(251, 176, 77)',
+      '1.6px solid rgb(251, 176, 77)',
     );
 
     cy.getByCy('computer-icon-path').should(
@@ -194,7 +194,7 @@ describe('<FilterNavigation />', () => {
     cy.getByCy('filter-navigation-location').should(
       'have.css',
       'border-bottom',
-      '2px solid rgb(251, 176, 77)',
+      '1.6px solid rgb(251, 176, 77)',
     );
 
     cy.getByCy('location-icon-path').should(

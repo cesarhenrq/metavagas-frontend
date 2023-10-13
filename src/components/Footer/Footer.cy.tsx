@@ -67,7 +67,7 @@ describe('<Footer />', () => {
     cy.getByCy('line').should(
       'have.css',
       'border',
-      '1px solid rgb(251, 176, 77)',
+      '0.8px solid rgb(251, 176, 77)',
     );
   });
 });

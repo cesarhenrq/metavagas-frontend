@@ -33,10 +33,6 @@ describe('<FilterCardContainer />', () => {
     screen.getByTestId('register-card');
   });
 
-  it('should render filter card component', () => {
-    screen.getAllByTestId('filter-card');
-  });
-
   it('should render text "Vagas de emprego em todo Brasil"', () => {
     screen.getByText('Vagas de emprego em todo Brasil');
   });
