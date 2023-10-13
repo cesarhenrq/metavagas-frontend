@@ -1,9 +1,54 @@
 /* eslint-disable indent */
+import { useContext } from 'react';
+
 import { BarChart, Bar, ResponsiveContainer, XAxis, YAxis } from 'recharts';
 
 import Text from '@components/Text';
+import Button from '@components/Button';
+
+import { userContext } from '@contexts/user';
 
 import * as S from './styles';
+
+type Data = {
+  name: string;
+  qty: number;
+};
+
+type ChartProps = {
+  data: Data[];
+  label: React.ReactElement;
+};
+
+const Chart = ({ data, label }: ChartProps) => {
+  const { user } = useContext(userContext);
+
+  return (
+    <S.ChartWrapper>
+      <S.Chart isLogged={Boolean(user)}>
+        <Text label={label} />
+        <ResponsiveContainer width="100%" height="100%">
+          <BarChart data={data} margin={{ top: 24 }}>
+            <XAxis
+              dataKey="name"
+              axisLine={false}
+              tickLine={false}
+              allowDataOverflow
+            />
+            <YAxis axisLine={false} tickLine={false} allowDataOverflow />
+            <Bar
+              dataKey="qty"
+              fill="#6950A1"
+              barSize={20}
+              shape={<RoundedTopBar />}
+            />
+          </BarChart>
+        </ResponsiveContainer>
+      </S.Chart>
+      {!user && <Button label="Cadastre-se para visualizar" />}
+    </S.ChartWrapper>
+  );
+};
 
 type RoundedTopBarProps = {
   fill?: string;
@@ -33,41 +78,6 @@ const RoundedTopBar = (props: RoundedTopBarProps) => {
       stroke="none"
       fill={fill}
     />
-  );
-};
-
-type Data = {
-  name: string;
-  qtd: number;
-};
-
-type ChartProps = {
-  data: Data[];
-  label: React.ReactElement;
-};
-
-const Chart = ({ data, label }: ChartProps) => {
-  return (
-    <S.Chart>
-      <Text label={label} />
-      <ResponsiveContainer width="100%" height="100%">
-        <BarChart width={150} height={40} data={data} margin={{ top: 24 }}>
-          <XAxis
-            dataKey="name"
-            axisLine={false}
-            tickLine={false}
-            allowDataOverflow
-          />
-          <YAxis axisLine={false} tickLine={false} allowDataOverflow />
-          <Bar
-            dataKey="qtd"
-            fill="#6950A1"
-            barSize={20}
-            shape={<RoundedTopBar />}
-          />
-        </BarChart>
-      </ResponsiveContainer>
-    </S.Chart>
   );
 };
 
