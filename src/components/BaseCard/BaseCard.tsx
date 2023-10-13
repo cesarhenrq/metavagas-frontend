@@ -1,8 +1,13 @@
 import * as S from './styles';
 
-const BaseCard = ({ children, ...styleProps }: BaseCardProps) => {
+const BaseCard = ({ onClick, children, ...styleProps }: BaseCardProps) => {
   return (
-    <S.BaseCard {...styleProps} className="base-card" data-cy="base-card">
+    <S.BaseCard
+      {...styleProps}
+      className="base-card"
+      onClick={onClick}
+      data-cy="base-card"
+    >
       {children}
     </S.BaseCard>
   );

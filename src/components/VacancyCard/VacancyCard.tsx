@@ -6,11 +6,11 @@ import * as I from '@assets/db.icons';
 
 type props = {
   location: string;
-  technology: string;
+  technologies: string;
   vacancyRole: string;
 };
 
-const VacancyCard = ({ location, technology, vacancyRole }: props) => {
+const VacancyCard = ({ location, technologies, vacancyRole }: props) => {
   return (
     <BaseCard>
       <S.Card data-cy="vancacy-card">
@@ -23,17 +23,17 @@ const VacancyCard = ({ location, technology, vacancyRole }: props) => {
         <S.Container>
           <div className="text-container">
             <I.Location fill="yellow" width={16} />
-            <Text label={`Localização: ${location}`} fontColor="dark-grey" />
+            <Text label={`Localização: ${location}`} fontColor="dark-gray" />
           </div>
           <div className="text-container">
             <I.Computer fill="yellow" width={16} />
             <Text
               label={
                 <p>
-                  Tecnologia: <b>{technology}</b>
+                  Tecnologia: <b>{technologies}</b>
                 </p>
               }
-              fontColor="dark-grey"
+              fontColor="dark-gray"
             />
           </div>
           <S.Link href="/register" data-cy="link">
