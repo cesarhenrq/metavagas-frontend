@@ -10,22 +10,15 @@ import Text from '@components/Text';
 import Button from '@components/Button';
 
 import { filtersContext, actions } from '@contexts/filters';
+import { queryContext, queryActions } from '@contexts/query';
+
+import useResource from '@hooks/useResource';
+import useFetchResource from '@hooks/useFetchResource';
 
 import * as S from './styles';
 
-const technologies = [
-  'JavaScript',
-  'Python',
-  'Java',
-  'C#',
-  'Ruby',
-  'PHP',
-  'TypeScript',
-  'Swift',
-  'Go',
-  'Kotlin',
-  'Rust',
-];
+import { buildQueryString } from '@utils/functions';
+
 const vacancyTypes = ['Remoto', 'Presencial', 'Híbrido'];
 const workArrangements = ['CLT', 'PJ'];
 const companySizes = ['Pequena', 'Média', 'Grande'];
@@ -40,23 +33,33 @@ const Filter = () => {
     initialVisibleTechCount,
   );
 
+  const [technologies, technologiesService] =
+    useResource<Technology>('technologies');
+
   const checkboxRefs: { [key: string]: React.RefObject<HTMLInputElement> } = {};
 
   const { filters, filtersDispatch } = useContext(filtersContext);
+  const { queryDispatch } = useContext(queryContext);
+
+  const isLoaded = useFetchResource(technologiesService);
 
   useEffect(() => {
-    technologies.slice(0, visibleTechCount).forEach(tech => {
-      if (filters.technologies.includes(tech)) {
-        const checkboxRef = checkboxRefs[tech];
-        if (checkboxRef && checkboxRef.current) {
-          checkboxRef.current.checked = true;
+    if (isLoaded) {
+      technologies.slice(0, visibleTechCount).forEach(({ tecName }) => {
+        if (filters.technologies.includes(tecName)) {
+          const checkboxRef = checkboxRefs[tecName];
+          if (checkboxRef && checkboxRef.current) {
+            checkboxRef.current.checked = true;
+          }
         }
-      }
-    });
+
+        queryDispatch(queryActions.setQuery(buildQueryString(filters)));
+      });
+    }
 
     filtersDispatch(actions.addMinWage(String(minSalary)));
     filtersDispatch(actions.addMaxWage(String(maxSalary)));
-  }, [filters.technologies, visibleTechCount]);
+  }, [filters.technologies, visibleTechCount, isLoaded]);
 
   const handleRangeChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.id === 'min-salary') {
@@ -103,8 +106,12 @@ const Filter = () => {
     setVisibleTechCount(initialVisibleTechCount);
   };
 
+  const handleFilter = () => {
+    queryDispatch(queryActions.setQuery(buildQueryString(filters)));
+  };
+
   return (
-    <S.Filter data-cy="filter">
+    <S.Filter data-cy="filter" visibleTechCount={visibleTechCount}>
       <S.TitleContainer data-cy="title-container">
         <Text label="Filtre sua busca" fontSize="medium" fontWeight="bold" />
         <S.Reset onClick={handleReset} data-cy="reset-button">
@@ -115,21 +122,21 @@ const Filter = () => {
       <S.Filters data-cy="filters">
         <Text label="Tecnologia" fontWeight="500" />
         <S.FilterType data-cy="filter-technology">
-          {technologies.slice(0, visibleTechCount).map(tech => {
-            checkboxRefs[tech] = createRef();
+          {technologies.slice(0, visibleTechCount).map(({ tecName }) => {
+            checkboxRefs[tecName] = createRef();
 
             return (
               <S.FilterContainer
-                key={tech}
+                key={tecName}
                 data-cy="checkbox-technology-container"
               >
                 <input
                   type="checkbox"
-                  id={tech}
-                  ref={checkboxRefs[tech]}
+                  id={tecName}
+                  ref={checkboxRefs[tecName]}
                   onChange={e => handleCheckBoxChange(e, 'Technology')}
                 />
-                <label htmlFor={tech}>{tech}</label>
+                <label htmlFor={tecName}>{tecName}</label>
               </S.FilterContainer>
             );
           })}
@@ -259,7 +266,7 @@ const Filter = () => {
           })}
         </S.FilterType>
       </S.Filters>
-      <Button label="Filtrar" fontWeight="500" />
+      <Button label="Filtrar" fontWeight="500" onClick={handleFilter} />
     </S.Filter>
   );
 };
