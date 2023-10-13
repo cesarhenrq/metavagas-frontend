@@ -1,0 +1,3 @@
+type Advertiser = {
+  name: string;
+};
