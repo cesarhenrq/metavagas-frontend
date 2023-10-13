@@ -1,11 +1,55 @@
+import { useContext } from 'react';
+
 import SearchBar from '@components/SearchBar';
+import CountryTechTrends from '@components/CountryTechTrends';
+import CityTechTrendsChart from '@components/CityTechTrendsChart';
+import Filter from '@components/Filter';
+import VacancyInfoCard from '@components/VacancyInfoCard';
+
+import { queryContext } from '@contexts/query';
+
+import useResource from '@hooks/useResource';
+import useFetchResource from '@hooks/useFetchResource';
 
 import * as S from './styles';
 
 const VacanciesPage = () => {
+  const { query } = useContext(queryContext);
+
+  const url = `vacancies${query && '?' + query}`;
+
+  console.log(url);
+
+  const [vacancies, vacancyService] = useResource<Vacancy>(url);
+
+  useFetchResource(vacancyService, [query]);
+
   return (
     <S.VacanciesPage data-cy="vacancies-page">
       <SearchBar />
+      <S.Content>
+        <Filter />
+        <S.VacancyChartContainer>
+          <S.Charts>
+            <CountryTechTrends />
+            <CityTechTrendsChart />
+          </S.Charts>
+          <S.Vacancies>
+            {vacancies.map(
+              ({ id, advertiser, company, wage, technologies, ...props }) => (
+                <VacancyInfoCard
+                  key={id}
+                  {...props}
+                  company={company.name}
+                  advertiser={advertiser.name}
+                  wage={String(wage)}
+                  technologies={technologies.map(({ tecName }) => tecName)}
+                />
+              ),
+            )}
+          </S.Vacancies>
+        </S.VacancyChartContainer>
+      </S.Content>
     </S.VacanciesPage>
   );
 };
