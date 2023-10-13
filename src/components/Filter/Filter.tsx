@@ -52,13 +52,15 @@ const Filter = () => {
             checkboxRef.current.checked = true;
           }
         }
-
-        queryDispatch(queryActions.setQuery(buildQueryString(filters)));
       });
+
+      filtersDispatch(actions.addMinWage(String(minSalary)));
+      filtersDispatch(actions.addMaxWage(String(maxSalary)));
+
+      queryDispatch(queryActions.setQuery(buildQueryString(filters)));
     }
 
-    filtersDispatch(actions.addMinWage(String(minSalary)));
-    filtersDispatch(actions.addMaxWage(String(maxSalary)));
+    
   }, [filters.technologies, visibleTechCount, isLoaded]);
 
   const handleRangeChange = (e: ChangeEvent<HTMLInputElement>) => {
