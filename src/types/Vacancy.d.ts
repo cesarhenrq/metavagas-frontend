@@ -9,5 +9,6 @@ type Vacancy = {
   wage: number;
   createdAt: string;
   updatedAt: string;
-  technology: string;
+  technologies: Technology[];
+  advertiser: Advertiser;
 };
