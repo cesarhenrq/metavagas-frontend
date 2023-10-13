@@ -1,9 +1,20 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
-const useFetchResource = <T>(service: Service<T>) => {
+const useFetchResource = <T>(
+  service: Service<T>,
+  dependencies: React.DependencyList = [],
+) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
   useEffect(() => {
-    service.get();
-  }, []);
+    const fetch = async () => {
+      await service.get();
+      setIsLoaded(true);
+    };
+    fetch();
+  }, dependencies);
+
+  return isLoaded;
 };
 
 export default useFetchResource;
