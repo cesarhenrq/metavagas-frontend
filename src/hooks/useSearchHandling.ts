@@ -5,36 +5,28 @@ import useResource from '@hooks/useResource';
 import useFetchResource from '@hooks/useFetchResource';
 
 import { filtersContext, actions } from '@contexts/filters';
+import { queryContext, queryActions } from '@contexts/query';
 
 import removeDuplicate from '@utils/functions';
-
-const technologies = [
-  'JavaScript',
-  'Python',
-  'Java',
-  'C#',
-  'Ruby',
-  'PHP',
-  'TypeScript',
-  'Swift',
-  'Go',
-  'Kotlin',
-  'Rust',
-];
+import { buildQueryString } from '@utils/functions';
 
 const useSearchHandling = (
   positionOrTech: string,
   location: string,
   addRecentSearch: (recentSearch: string) => void,
 ) => {
-  const { filtersDispatch } = useContext(filtersContext);
+  const { filters, filtersDispatch } = useContext(filtersContext);
+  const { queryDispatch } = useContext(queryContext);
 
   const [vacancies, vacanciesService] = useResource<Vacancy>('vacancies');
+  const [technologies, technologiesService] =
+    useResource<Technology>('technologies');
 
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
   useFetchResource<Vacancy>(vacanciesService);
+  useFetchResource<Technology>(technologiesService);
 
   const roles = removeDuplicate(vacancies, 'vacancyRole');
 
@@ -42,13 +34,15 @@ const useSearchHandling = (
     positionOrTech && addRecentSearch(positionOrTech);
     filtersDispatch(actions.addLocation(location));
 
-    if (technologies.includes(positionOrTech)) {
+    if (technologies.map(({ tecName }) => tecName).includes(positionOrTech)) {
       filtersDispatch(actions.addTechnology(positionOrTech));
     } else if (roles.includes(positionOrTech)) {
       filtersDispatch(actions.addRole(positionOrTech));
     } else {
       filtersDispatch(actions.addGeralQuery(positionOrTech));
     }
+
+    queryDispatch(queryActions.setQuery(buildQueryString(filters)));
 
     pathname === '/' && navigate('/vacancies');
   };
