@@ -6,11 +6,15 @@ import * as I from '@assets/db.icons';
 
 type props = {
   location: string;
-  technologies: string;
+  technologies: Technology[];
   vacancyRole: string;
 };
 
 const VacancyCard = ({ location, technologies, vacancyRole }: props) => {
+  const technologyElements = technologies
+    .map((technology, index) => <b key={index}>{technology.tecName}</b>)
+    .slice(0, 1);
+
   return (
     <BaseCard>
       <S.Card data-cy="vancacy-card">
@@ -30,7 +34,7 @@ const VacancyCard = ({ location, technologies, vacancyRole }: props) => {
             <Text
               label={
                 <p>
-                  Tecnologia: <b>{technologies}</b>
+                  Tecnologia: <b>{technologyElements}</b>
                 </p>
               }
               fontColor="dark-gray"

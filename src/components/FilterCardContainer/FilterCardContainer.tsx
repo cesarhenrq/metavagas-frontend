@@ -15,36 +15,23 @@ import * as S from './styles';
 
 import removeDuplicate from '@utils/functions';
 
-const technologies = [
-  'JavaScript',
-  'Python',
-  'Java',
-  'C#',
-  'Ruby',
-  'PHP',
-  'TypeScript',
-  'Swift',
-  'Go',
-  'Kotlin',
-  'Rust',
-];
-
 const FilterCardContainer = () => {
   const [activeTab, setActiveTab] = useState('technology');
 
   const { user } = useContext(userContext);
 
   const [vacancies, vacancyService] = useResource<Vacancy>('vacancies');
-  /* const [technologies, technologyService] =
-    useResource<Technology>('technologies'); */
+  const [technologies, technologyService] =
+    useResource<Technology>('technologies');
 
   const { handleFilter } = useFilterHandling();
 
   const roles = removeDuplicate(vacancies, 'vacancyRole') as string[];
   const locations = removeDuplicate(vacancies, 'location') as string[];
+  const tecnologiesToRender = technologies.map(({ tecName }) => tecName);
 
   useFetchResource(vacancyService);
-  //useFetchResource(technologyService);
+  useFetchResource(technologyService);
 
   const handleCLick = (event: React.MouseEvent<HTMLDivElement>) => {
     const { id } = event.currentTarget;
@@ -55,7 +42,7 @@ const FilterCardContainer = () => {
 
   switch (activeTab) {
     case 'technology':
-      dataToRender = technologies;
+      dataToRender = tecnologiesToRender;
       break;
     case 'location':
       dataToRender = locations;
@@ -64,7 +51,7 @@ const FilterCardContainer = () => {
       dataToRender = roles;
       break;
     default:
-      dataToRender = technologies;
+      dataToRender = tecnologiesToRender;
   }
 
   return (

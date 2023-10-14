@@ -9,7 +9,7 @@ describe('VancancyCard component', () => {
     container = render(
       <VacancyCard
         location={'Betim-MG'}
-        technologies={'React'}
+        technologies={[]}
         vacancyRole={'Desenvolvedor de sistemas pleno'}
       />,
     ).container;

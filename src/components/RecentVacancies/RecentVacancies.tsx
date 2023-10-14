@@ -19,7 +19,6 @@ const RecentVacancies = () => {
     })
     .slice(0, 4);
 
-  console.log(vacanciesToRender);
   useFetchResource(vacancyService);
 
   const navigate = useNavigate();
@@ -41,8 +40,9 @@ const RecentVacancies = () => {
       <div className="vacancy-container">
         {vacanciesToRender.map(data => (
           <VacancyCard
+            key={data.id}
             location={data.location}
-            technologies={data.technology}
+            technologies={data.technologies}
             vacancyRole={data.vacancyRole}
           />
         ))}

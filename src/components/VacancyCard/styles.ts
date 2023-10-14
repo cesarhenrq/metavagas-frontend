@@ -4,6 +4,10 @@ export const Card = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+
+  .text {
+    justify-content: flex-start;
+  }
 `;
 
 export const Container = styled.div`
