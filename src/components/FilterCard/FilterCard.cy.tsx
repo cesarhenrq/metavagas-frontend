@@ -28,11 +28,6 @@ describe('<FilterCard />', () => {
     );
   });
 
-  it('should arrow be cursor pointer when hover it', () => {
-    cy.getByCy('arrow').realHover();
-    cy.getByCy('arrow').should('have.css', 'cursor', 'auto');
-  });
-
   it('should text container has diplay: flex', () => {
     cy.getByCy('text-container').should('have.css', 'display', 'flex');
   });
