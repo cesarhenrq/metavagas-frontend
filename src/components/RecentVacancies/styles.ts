@@ -1,6 +1,11 @@
+/* eslint-disable indent */
 import styled from 'styled-components';
 
-export const Container = styled.section`
+type props = {
+  buttonVisible: boolean;
+};
+
+export const Container = styled.section<props>`
   margin: 134px;
 
   .vacancy-container {
@@ -15,6 +20,8 @@ export const Container = styled.section`
   }
 
   .button-container {
+    visibility: ${({ buttonVisible }) =>
+      buttonVisible ? 'visible' : 'hidden'};
     display: flex;
     justify-content: center;
     margin-top: 48px;

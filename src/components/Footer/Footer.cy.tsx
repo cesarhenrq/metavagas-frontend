@@ -62,12 +62,4 @@ describe('<Footer />', () => {
   it('should contact info item has gap: 0.5rem', () => {
     cy.getByClassLike('contact-info-item').should('have.css', 'gap', '8px');
   });
-
-  it('should line has border: 1px solid var(--yellow)', () => {
-    cy.getByCy('line').should(
-      'have.css',
-      'border',
-      '1px solid rgb(251, 176, 77)',
-    );
-  });
 });

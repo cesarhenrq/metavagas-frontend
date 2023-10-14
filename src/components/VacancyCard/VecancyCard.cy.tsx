@@ -6,7 +6,7 @@ describe('', () => {
     cy.mount(
       <>
         <GlobalStyle />
-        <VacacyCard location={''} technology={''} vacancyRole={''} />
+        <VacacyCard location={''} technologies={[]} vacancyRole={''} />
       </>,
     );
 
@@ -17,7 +17,7 @@ describe('', () => {
     cy.mount(
       <>
         <GlobalStyle />
-        <VacacyCard location={''} technology={''} vacancyRole={''} />
+        <VacacyCard location={''} technologies={[]} vacancyRole={''} />
       </>,
     );
 

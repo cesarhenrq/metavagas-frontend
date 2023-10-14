@@ -1,8 +1,8 @@
 import * as S from './styles';
 
-const Text = (props: TextProps) => {
+const Text = ({ className, ...props }: TextProps) => {
   return (
-    <S.Text {...props} className="text" data-cy="text">
+    <S.Text {...props} className={`text ${className}`} data-cy="text">
       {props.label}
     </S.Text>
   );

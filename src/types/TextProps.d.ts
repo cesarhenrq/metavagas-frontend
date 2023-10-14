@@ -4,4 +4,5 @@ type TextProps = {
   fontColor?: FontColor;
   label: string | React.ReactElement;
   fontStyle?: FontStyle;
+  className?: string;
 };

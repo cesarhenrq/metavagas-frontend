@@ -13,7 +13,11 @@ const FilterCard = ({ filter, onClick }: FilterCardProps) => {
   return (
     <S.FilterCard className="filter-card" data-cy="filter-card">
       <BaseCard padding="xmedium" borderColor="white">
-        <div className="text-container" data-cy="text-container">
+        <div
+          className="text-container"
+          data-cy="text-container"
+          data-label={filter}
+        >
           <Text label="Vagas" fontColor="gray" fontSize="xsmall" />
           <Text label={filter} fontSize="medium" />
         </div>

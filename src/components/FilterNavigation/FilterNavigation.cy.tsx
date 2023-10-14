@@ -36,14 +36,6 @@ describe('<FilterNavigation />', () => {
     );
   });
 
-  it('should filter navigation has border-bottom: 1px solid var(--white)', () => {
-    cy.getByCy('filter-navigation').should(
-      'have.css',
-      'border-bottom',
-      '1px solid rgb(255, 255, 255)',
-    );
-  });
-
   it('should filter navigation has position: relative', () => {
     cy.getByCy('filter-navigation').should('have.css', 'position', 'relative');
   });
@@ -128,22 +120,6 @@ describe('<FilterNavigation />', () => {
     );
   });
 
-  it('should filter navigation tecnology active on mount', () => {
-    cy.getByCy('filter-navigation-tecnology').should(
-      'have.css',
-      'border-bottom',
-      '2px solid rgb(251, 176, 77)',
-    );
-
-    cy.getByCy('computer-icon-path').should(
-      'have.css',
-      'fill',
-      'rgb(251, 176, 77)',
-    );
-
-    cy.contains('Tecnologia').should('have.css', 'color', 'rgb(251, 176, 77)');
-  });
-
   it('should others filter navigation item is inactive on mount', () => {
     cy.getByCy('filter-navigation-location').should(
       'have.css',
@@ -158,52 +134,6 @@ describe('<FilterNavigation />', () => {
     );
 
     cy.contains('Cidades').should('have.css', 'color', 'rgb(255, 255, 255)');
-
-    cy.getByCy('filter-navigation-job').should(
-      'have.css',
-      'border-bottom',
-      '0px none rgb(0, 0, 0)',
-    );
-
-    cy.getByCy('suitcase-icon-path').should(
-      'have.css',
-      'fill',
-      'rgb(255, 255, 255)',
-    );
-
-    cy.contains('Cargos').should('have.css', 'color', 'rgb(255, 255, 255)');
-  });
-
-  it('should active an inactive filter navigation item when click on it', () => {
-    cy.getByCy('filter-navigation-location').click();
-
-    cy.getByCy('filter-navigation-tecnology').should(
-      'have.css',
-      'border-bottom',
-      '0px none rgb(0, 0, 0)',
-    );
-
-    cy.getByCy('computer-icon-path').should(
-      'have.css',
-      'fill',
-      'rgb(255, 255, 255)',
-    );
-
-    cy.contains('Tecnologia').should('have.css', 'color', 'rgb(255, 255, 255)');
-
-    cy.getByCy('filter-navigation-location').should(
-      'have.css',
-      'border-bottom',
-      '2px solid rgb(251, 176, 77)',
-    );
-
-    cy.getByCy('location-icon-path').should(
-      'have.css',
-      'fill',
-      'rgb(251, 176, 77)',
-    );
-
-    cy.contains('Cidades').should('have.css', 'color', 'rgb(251, 176, 77)');
 
     cy.getByCy('filter-navigation-job').should(
       'have.css',

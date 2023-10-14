@@ -6,9 +6,12 @@ import useResource from '@hooks/useResource';
 import useFetchResource from '@hooks/useFetchResource';
 import VacancyCard from '@components/VacancyCard';
 import { useNavigate } from 'react-router-dom';
+import { userContext } from '@contexts/user';
+import { useContext } from 'react';
 
 const RecentVacancies = () => {
   const [vacancies, vacancyService] = useResource<Vacancy>('vacancies');
+  const { user } = useContext(userContext);
 
   const vacanciesToRender = vacancies
     .sort(function (a: Vacancy, b: Vacancy) {
@@ -16,7 +19,6 @@ const RecentVacancies = () => {
     })
     .slice(0, 4);
 
-  console.log(vacanciesToRender);
   useFetchResource(vacancyService);
 
   const navigate = useNavigate();
@@ -26,7 +28,7 @@ const RecentVacancies = () => {
   };
 
   return (
-    <S.Container>
+    <S.Container buttonVisible={Boolean(!user)}>
       <div className="text-container">
         <Text
           label="Vagas mais recentes"
@@ -38,8 +40,9 @@ const RecentVacancies = () => {
       <div className="vacancy-container">
         {vacanciesToRender.map(data => (
           <VacancyCard
+            key={data.id}
             location={data.location}
-            technology={data.technology}
+            technologies={data.technologies}
             vacancyRole={data.vacancyRole}
           />
         ))}

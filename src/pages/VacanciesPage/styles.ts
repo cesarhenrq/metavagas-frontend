@@ -14,3 +14,31 @@ export const VacanciesPage = styled.div`
     }
   }
 `;
+
+export const Charts = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  width: 100%;
+`;
+
+export const Content = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 3rem 8.4375rem;
+`;
+
+export const Vacancies = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+`;
+
+export const VacancyChartContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+`;
