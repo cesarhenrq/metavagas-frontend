@@ -8,7 +8,7 @@ export default createGlobalStyle`
     --purple-dark-secondary: #6950A1;
     --white: #FFFFFF;
     --gray: #A6A8AB;
-    --dark-grey: #4A4A68;
+    --dark-gray: #4A4A68;
     --gray-medium: #8C8CA1;
     --gray-light: #D1D1D1;
     --yellow: #FBB04D;

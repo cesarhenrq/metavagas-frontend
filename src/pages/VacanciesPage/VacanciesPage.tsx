@@ -12,6 +12,7 @@ import useResource from '@hooks/useResource';
 import useFetchResource from '@hooks/useFetchResource';
 
 import * as S from './styles';
+import VacanciesFound from '@components/VacanciesFound';
 
 const VacanciesPage = () => {
   const { query } = useContext(queryContext);
@@ -27,6 +28,7 @@ const VacanciesPage = () => {
   return (
     <S.VacanciesPage data-cy="vacancies-page">
       <SearchBar />
+      <VacanciesFound allVacancies={'255'} />
       <S.Content>
         <Filter />
         <S.VacancyChartContainer>
