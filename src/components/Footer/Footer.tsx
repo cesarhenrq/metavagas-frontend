@@ -35,7 +35,11 @@ const Footer = () => {
   return (
     <S.Footer data-cy="footer" isButtonsVisible={Boolean(!user)}>
       <S.Line data-cy="line" />
-      <div className="text-container" data-cy="logo">
+      <div
+        className="text-container"
+        data-cy="logo"
+        onClick={() => redirect('/')}
+      >
         <Text label="meta" fontColor="white" fontSize="large" />
         <Text
           label="vagas"

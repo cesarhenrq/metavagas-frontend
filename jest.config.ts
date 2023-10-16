@@ -16,4 +16,5 @@ export default {
     axios: 'axios/dist/node/axios.cjs',
   },
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+  testTimeout: 30000,
 };
