@@ -14,6 +14,7 @@ export const Header = styled.header`
 
   .text-container {
     display: flex;
+    cursor: pointer;
   }
 
   .button-container {
