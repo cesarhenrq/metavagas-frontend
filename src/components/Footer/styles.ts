@@ -20,6 +20,7 @@ export const Footer = styled.footer<FooterProps>`
 
   .text-container {
     display: flex;
+    cursor: pointer;
   }
 
   .button-container {
