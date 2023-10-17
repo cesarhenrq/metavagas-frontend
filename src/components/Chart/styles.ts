@@ -8,7 +8,7 @@ export const Chart = styled.div<ChartProps>`
   display: flex;
   flex-direction: column;
   padding: 1.5rem 0rem;
-  width: 100%;
+  width: 99%;
   height: 269px;
   background: #f3f3f3;
   border-radius: 16px;
