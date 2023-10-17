@@ -4,7 +4,8 @@ import useResource from '@hooks/useResource';
 import useFetchResource from '@hooks/useFetchResource';
 
 const CountryTechTrends = () => {
-  const [vacancies, vacanciesService] = useResource<Vacancy>('vacancies');
+  const [vacancies, vacanciesService] =
+    useResource<Vacancy>('vacancies?limit=0');
 
   useFetchResource(vacanciesService);
 
