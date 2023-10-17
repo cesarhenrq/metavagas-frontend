@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { render, screen } from '@testing-library/react';
 import { expect } from '@jest/globals';
 import VacanciesFound from './VacanciesFound';
