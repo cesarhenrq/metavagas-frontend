@@ -39,7 +39,7 @@ const useSearchHandling = (
     } else if (roles.includes(positionOrTech)) {
       filtersDispatch(actions.addRole(positionOrTech));
     } else {
-      filtersDispatch(actions.addGeralQuery(positionOrTech));
+      filtersDispatch(actions.addDescription(positionOrTech));
     }
 
     queryDispatch(queryActions.setQuery(buildQueryString(filters)));
