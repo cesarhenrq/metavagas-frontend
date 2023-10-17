@@ -10,7 +10,7 @@ export type Filters = {
   maxWage: string;
   levels: string[];
   role: string;
-  geralQuery: string;
+  description: string;
 };
 
 export const initialState: Filters = {
@@ -23,7 +23,7 @@ export const initialState: Filters = {
   maxWage: '',
   levels: [],
   role: '',
-  geralQuery: '',
+  description: '',
 };
 
 export const filtersDispatcher = (
@@ -119,15 +119,15 @@ export const filtersDispatcher = (
         ...state,
         maxWage: action.payload,
       };
-    case 'ADD_GERAL_QUERY':
+    case 'ADD_DESCRIPTION':
       return {
         ...state,
-        geralQuery: action.payload,
+        description: action.payload,
       };
-    case 'REMOVE_GERAL_QUERY':
+    case 'REMOVE_DESCRIPTION':
       return {
         ...state,
-        geralQuery: '',
+        description: '',
       };
     case 'RESET_FILTERS':
       return initialState;

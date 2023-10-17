@@ -18,7 +18,7 @@ export const VacanciesPage = styled.div`
 export const Charts = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 30px;
+  gap: 32px;
   width: 100%;
 `;
 
