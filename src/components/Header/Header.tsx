@@ -20,7 +20,7 @@ const Header = () => {
   };
   return (
     <S.Header data-cy="header">
-      <div className="text-container">
+      <div className="text-container" onClick={() => redirect('/')}>
         <Text label="meta" fontColor="white" fontSize="large" />
         <Text
           label="vagas"
