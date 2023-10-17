@@ -21,7 +21,7 @@ const CityTechTrendsChart = () => {
     </span>
   );
 
-  const [vacancies, vacanciesService] = useResource<Vacancy>(url);
+  const [vacancies, vacanciesService] = useResource<Vacancy>(`${url}&limit=0`);
 
   useFetchResource(vacanciesService, [url]);
 
@@ -35,11 +35,13 @@ const CityTechTrendsChart = () => {
   );
 
   const cityData = Object.entries(cityCounts).map(([city, count]) => ({
-    name: city,
+    name: city.split(',')[0],
     qty: count,
   }));
 
   cityData.sort((a, b) => b.qty - a.qty);
+
+  cityData.splice(5);
 
   return <Chart label={label} data={cityData} />;
 };

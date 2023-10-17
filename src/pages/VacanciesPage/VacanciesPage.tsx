@@ -19,8 +19,6 @@ const VacanciesPage = () => {
 
   const url = `vacancies${query && '?' + query}`;
 
-  console.log(url);
-
   const [vacancies, vacancyService] = useResource<Vacancy>(url);
 
   useFetchResource(vacancyService, [query]);
