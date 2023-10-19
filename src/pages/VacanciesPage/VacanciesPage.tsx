@@ -5,6 +5,7 @@ import CountryTechTrends from '@components/CountryTechTrends';
 import CityTechTrendsChart from '@components/CityTechTrendsChart';
 import Filter from '@components/Filter';
 import VacancyInfoCard from '@components/VacancyInfoCard';
+import LoadingSpinner from '@components/LoadingSpinner';
 
 import { queryContext } from '@contexts/query';
 
@@ -21,7 +22,7 @@ const VacanciesPage = () => {
 
   const [vacancies, vacancyService] = useResource<Vacancy>(url);
 
-  useFetchResource(vacancyService, [query]);
+  const isLoaded = useFetchResource(vacancyService, [query]);
 
   return (
     <S.VacanciesPage data-cy="vacancies-page">
@@ -36,16 +37,19 @@ const VacanciesPage = () => {
           </S.Charts>
           <S.Vacancies>
             {vacancies.map(
-              ({ id, advertiser, company, wage, technologies, ...props }) => (
-                <VacancyInfoCard
-                  key={id}
-                  {...props}
-                  company={company.name}
-                  advertiser={advertiser.name}
-                  wage={String(wage)}
-                  technologies={technologies.map(({ tecName }) => tecName)}
-                />
-              ),
+              ({ id, advertiser, company, wage, technologies, ...props }) =>
+                isLoaded ? (
+                  <VacancyInfoCard
+                    key={id}
+                    {...props}
+                    company={company.name}
+                    advertiser={advertiser.name}
+                    wage={String(wage)}
+                    technologies={technologies.map(({ tecName }) => tecName)}
+                  />
+                ) : (
+                  <LoadingSpinner size={100} />
+                ),
             )}
           </S.Vacancies>
         </S.VacancyChartContainer>

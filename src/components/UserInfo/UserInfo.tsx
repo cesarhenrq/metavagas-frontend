@@ -1,15 +1,17 @@
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 
-import { userContext, actions } from '@contexts/user';
+import { actions } from '@contexts/user';
 
 import Text from '@components/Text';
 import { DownArrow } from '@assets/db.icons';
+
+import useUser from '@hooks/useUser';
 
 import * as S from './styles';
 
 const UserInfo = () => {
   const [showOptions, setShowOptions] = useState(false);
-  const { user, userDispatch } = useContext(userContext);
+  const { user, userDispatch } = useUser();
 
   const name = user?.name.split('@')[0] || '';
 

@@ -8,10 +8,9 @@ import useField from '@hooks/useField';
 import useRecentSearches from '@hooks/useRecentSearches';
 import useSearchHandling from '@hooks/useSearchHandling';
 import SaveSearches from '@components/SaveSearches';
+import useUser from '@hooks/useUser';
 
 import * as S from './styles';
-import { useContext } from 'react';
-import { userContext } from '@contexts/user';
 
 const SearchBar = () => {
   const [location] = useField('text', 'location');
@@ -21,7 +20,7 @@ const SearchBar = () => {
 
   const [recentSearches, addRecentSearch] = useRecentSearches();
 
-  const { user } = useContext(userContext);
+  const { user } = useUser();
 
   const handleSearch = useSearchHandling(
     positionOrTech.value,

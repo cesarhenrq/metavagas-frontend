@@ -1,14 +1,11 @@
-import { useContext } from 'react';
-
 import Chart from '@components/Chart';
 
 import useResource from '@hooks/useResource';
 import useFetchResource from '@hooks/useFetchResource';
-
-import { filtersContext } from '@contexts/filters';
+import useFilters from '@hooks/useFilters';
 
 const CityTechTrendsChart = () => {
-  const { filters } = useContext(filtersContext);
+  const { filters } = useFilters();
 
   const url = filters.technologies[0]
     ? `vacancies?technologies=${filters.technologies[0]}`
@@ -23,7 +20,7 @@ const CityTechTrendsChart = () => {
 
   const [vacancies, vacanciesService] = useResource<Vacancy>(`${url}&limit=0`);
 
-  useFetchResource(vacanciesService, [url]);
+  const isLoaded = useFetchResource(vacanciesService, [url]);
 
   const cityCounts = vacancies.reduce<{ [key: string]: number }>(
     (acc, vacancy) => {
@@ -43,7 +40,7 @@ const CityTechTrendsChart = () => {
 
   cityData.splice(5);
 
-  return <Chart label={label} data={cityData} />;
+  return <Chart label={label} data={cityData} isLoaded={isLoaded} />;
 };
 
 export default CityTechTrendsChart;
