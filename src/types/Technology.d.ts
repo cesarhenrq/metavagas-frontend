@@ -1,6 +1,6 @@
 type Technology = {
   id: string;
-  tecName: string;
+  techName: string;
   creatorsName: string;
   vacancies: Vacancy[];
 };

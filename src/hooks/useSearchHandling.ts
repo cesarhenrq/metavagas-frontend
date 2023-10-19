@@ -34,7 +34,7 @@ const useSearchHandling = (
     positionOrTech && addRecentSearch(positionOrTech);
     filtersDispatch(actions.addLocation(location));
 
-    if (technologies.map(({ tecName }) => tecName).includes(positionOrTech)) {
+    if (technologies.map(({ techName }) => techName).includes(positionOrTech)) {
       filtersDispatch(actions.addTechnology(positionOrTech));
     } else if (roles.includes(positionOrTech)) {
       filtersDispatch(actions.addRole(positionOrTech));
