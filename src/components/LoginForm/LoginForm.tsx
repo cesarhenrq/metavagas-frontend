@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -13,8 +13,9 @@ import Text from '@components/Text';
 import Button from '@components/Button';
 
 import useResource from '@hooks/useResource';
+import useUser from '@hooks/useUser';
 
-import { userContext, actions } from '@contexts/user';
+import { actions } from '@contexts/user';
 
 import * as S from './styles';
 
@@ -40,7 +41,7 @@ const LoginForm = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
-  const { userDispatch } = useContext(userContext);
+  const { userDispatch } = useUser();
 
   const navigate = useNavigate();
 

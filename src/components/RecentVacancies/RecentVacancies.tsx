@@ -1,17 +1,17 @@
+import { useNavigate } from 'react-router-dom';
+
 import Text from '@components/Text';
 import * as S from './styles';
 import Button from '@components/Button';
+import VacancyCard from '@components/VacancyCard';
 
 import useResource from '@hooks/useResource';
 import useFetchResource from '@hooks/useFetchResource';
-import VacancyCard from '@components/VacancyCard';
-import { useNavigate } from 'react-router-dom';
-import { userContext } from '@contexts/user';
-import { useContext } from 'react';
+import useUser from '@hooks/useUser';
 
 const RecentVacancies = () => {
   const [vacancies, vacancyService] = useResource<Vacancy>('vacancies');
-  const { user } = useContext(userContext);
+  const { user } = useUser();
 
   const vacanciesToRender = vacancies
     .sort(function (a: Vacancy, b: Vacancy) {

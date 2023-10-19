@@ -7,7 +7,7 @@ const CountryTechTrends = () => {
   const [vacancies, vacanciesService] =
     useResource<Vacancy>('vacancies?limit=0');
 
-  useFetchResource(vacanciesService);
+  const isLoaded = useFetchResource(vacanciesService);
 
   const label = (
     <span>
@@ -39,7 +39,7 @@ const CountryTechTrends = () => {
 
   const top5Technologies = mostUsedTechnologies.slice(0, 5);
 
-  return <Chart label={label} data={top5Technologies} />;
+  return <Chart label={label} data={top5Technologies} isLoaded={isLoaded} />;
 };
 
 export default CountryTechTrends;

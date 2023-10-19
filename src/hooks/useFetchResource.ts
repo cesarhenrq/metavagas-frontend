@@ -8,6 +8,7 @@ const useFetchResource = <T>(
 
   useEffect(() => {
     const fetch = async () => {
+      setIsLoaded(false);
       await service.get();
       setIsLoaded(true);
     };

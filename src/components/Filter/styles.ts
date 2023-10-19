@@ -1,17 +1,12 @@
 import styled from 'styled-components';
 
-type FilterProps = {
-  visibleTechCount: number;
-};
-
-export const Filter = styled.div<FilterProps>`
+export const Filter = styled.div`
   background-color: var(--white);
   padding: 1.5rem;
   border-radius: 1rem;
   border: 1px solid var(--gray-light);
   box-shadow: 0px 15px 35px rgba(207.7, 207.7, 207.7, 0.2);
-  height: ${({ visibleTechCount }) =>
-    visibleTechCount === 8 ? '1174px' : 'auto'};
+  height: 'auto';
 
   .text {
     justify-content: flex-start;
