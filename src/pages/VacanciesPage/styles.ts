@@ -30,6 +30,7 @@ export const Content = styled.div`
 `;
 
 export const Vacancies = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 30px;

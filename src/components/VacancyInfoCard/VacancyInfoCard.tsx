@@ -1,7 +1,9 @@
+import { useState } from 'react';
+
 import BaseCard from '@components/BaseCard';
 import Text from '@components/Text';
-import { userContext } from '@contexts/user';
-import { useContext, useState } from 'react';
+
+import useUser from '@hooks/useUser';
 
 import * as S from './styles';
 import * as I from '@assets/db.icons';
@@ -29,7 +31,7 @@ const VacancyInfoCard = ({
   createdAt,
   advertiser,
 }: props) => {
-  const { user } = useContext(userContext);
+  const { user } = useUser();
   const [expanded, setExpanded] = useState(false);
 
   const today = new Date();

@@ -1,12 +1,11 @@
 /* eslint-disable indent */
-import { useContext } from 'react';
-
 import { BarChart, Bar, ResponsiveContainer, XAxis, YAxis } from 'recharts';
 
 import Text from '@components/Text';
 import Button from '@components/Button';
+import LoadingSpinner from '@components/LoadingSpinner';
 
-import { userContext } from '@contexts/user';
+import useUser from '@hooks/useUser';
 
 import * as S from './styles';
 
@@ -18,33 +17,39 @@ type Data = {
 type ChartProps = {
   data: Data[];
   label: React.ReactElement;
+  isLoaded: boolean;
 };
 
-const Chart = ({ data, label }: ChartProps) => {
-  const { user } = useContext(userContext);
+const Chart = ({ data, label, isLoaded }: ChartProps) => {
+  const { user } = useUser();
 
   return (
     <S.ChartWrapper>
-      <S.Chart isLogged={Boolean(user)}>
-        <Text label={label} />
-        <ResponsiveContainer width="100%" height="100%">
-          <BarChart data={data} margin={{ top: 24 }}>
-            <XAxis
-              dataKey="name"
-              axisLine={false}
-              tickLine={false}
-              allowDataOverflow
-            />
-            <YAxis axisLine={false} tickLine={false} allowDataOverflow />
-            <Bar
-              dataKey="qty"
-              fill="#6950A1"
-              barSize={20}
-              shape={<RoundedTopBar />}
-            />
-          </BarChart>
-        </ResponsiveContainer>
-      </S.Chart>
+      {isLoaded ? (
+        <S.Chart isLogged={Boolean(user)}>
+          <Text label={label} />
+          <ResponsiveContainer width="100%" height="100%">
+            <BarChart data={data} margin={{ top: 24 }}>
+              <XAxis
+                dataKey="name"
+                axisLine={false}
+                tickLine={false}
+                allowDataOverflow
+              />
+              <YAxis axisLine={false} tickLine={false} allowDataOverflow />
+              <Bar
+                dataKey="qty"
+                fill="#6950A1"
+                barSize={20}
+                shape={<RoundedTopBar />}
+              />
+            </BarChart>
+          </ResponsiveContainer>
+        </S.Chart>
+      ) : (
+        <LoadingSpinner />
+      )}
+
       {!user && <Button label="Cadastre-se para visualizar" />}
     </S.ChartWrapper>
   );

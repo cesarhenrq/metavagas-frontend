@@ -1,17 +1,15 @@
-import { useContext } from 'react';
-
 import { useNavigate } from 'react-router-dom';
 
 import Text from '@components/Text';
 import Button from '@components/Button';
 import UserInfo from '@components/UserInfo';
 
-import { userContext } from '@contexts/user';
+import useUser from '@hooks/useUser';
 
 import * as S from './styles';
 
 const Header = () => {
-  const { user } = useContext(userContext);
+  const { user } = useUser();
 
   const navigate = useNavigate();
 
