@@ -17,7 +17,7 @@ const CountryTechTrends = () => {
 
   const allTechnologies = vacancies.reduce<string[]>((acc, vacancy) => {
     vacancy.technologies.forEach(tech => {
-      acc.push(tech.tecName);
+      acc.push(tech.techName);
     });
     return acc;
   }, []);

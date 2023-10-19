@@ -41,9 +41,9 @@ const Filter = () => {
 
   useEffect(() => {
     if (isLoaded) {
-      technologies.slice(0, visibleTechCount).forEach(({ tecName }) => {
-        if (filters.technologies.includes(tecName)) {
-          const checkboxRef = checkboxRefs[tecName];
+      technologies.slice(0, visibleTechCount).forEach(({ techName }) => {
+        if (filters.technologies.includes(techName)) {
+          const checkboxRef = checkboxRefs[techName];
           if (checkboxRef && checkboxRef.current) {
             checkboxRef.current.checked = true;
           }
@@ -123,21 +123,21 @@ const Filter = () => {
             data-cy="filter-technology"
             className="filter-technology"
           >
-            {technologies.slice(0, visibleTechCount).map(({ tecName }) => {
-              checkboxRefs[tecName] = createRef();
+            {technologies.slice(0, visibleTechCount).map(({ techName }) => {
+              checkboxRefs[techName] = createRef();
 
               return (
                 <S.FilterContainer
-                  key={tecName}
+                  key={techName}
                   data-cy="checkbox-technology-container"
                 >
                   <input
                     type="checkbox"
-                    id={tecName}
-                    ref={checkboxRefs[tecName]}
+                    id={techName}
+                    ref={checkboxRefs[techName]}
                     onChange={e => handleCheckBoxChange(e, 'Technology')}
                   />
-                  <label htmlFor={tecName}>{tecName}</label>
+                  <label htmlFor={techName}>{techName}</label>
                 </S.FilterContainer>
               );
             })}

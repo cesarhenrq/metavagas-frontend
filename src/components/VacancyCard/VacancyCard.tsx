@@ -12,7 +12,7 @@ type props = {
 
 const VacancyCard = ({ location, technologies, vacancyRole }: props) => {
   const technologyElements = technologies
-    .map((technology, index) => <b key={index}>{technology.tecName}</b>)
+    .map((technology, index) => <b key={index}>{technology.techName}</b>)
     .slice(0, 1);
 
   return (

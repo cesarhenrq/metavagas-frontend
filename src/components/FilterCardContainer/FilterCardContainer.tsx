@@ -27,7 +27,7 @@ const FilterCardContainer = () => {
 
   const roles = removeDuplicate(vacancies, 'vacancyRole') as string[];
   const locations = removeDuplicate(vacancies, 'location') as string[];
-  const tecnologiesToRender = technologies.map(({ tecName }) => tecName);
+  const tecnologiesToRender = technologies.map(({ techName }) => techName);
 
   useFetchResource(vacancyService);
   useFetchResource(technologyService);

@@ -45,7 +45,7 @@ const VacanciesPage = () => {
                     company={company.name}
                     advertiser={advertiser.name}
                     wage={String(wage)}
-                    technologies={technologies.map(({ tecName }) => tecName)}
+                    technologies={technologies.map(({ techName }) => techName)}
                   />
                 ) : (
                   <LoadingSpinner size={100} />
