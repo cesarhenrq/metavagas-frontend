@@ -6,7 +6,9 @@ describe('VacanciesFound component', () => {
   let container: HTMLElement;
 
   beforeEach(() => {
-    container = render(<VacanciesFound allVacancies={'255'} />).container;
+    container = render(
+      <VacanciesFound allVacancies={255} technology="React" />,
+    ).container;
   });
 
   it('should be defined', () => {

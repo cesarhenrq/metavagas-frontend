@@ -3,13 +3,24 @@ import { useState } from 'react';
 import httpClient from '@services/httpClient';
 import { AxiosError } from 'axios';
 
-const useResource = <T>(resouceUrl: string): [T[], Service<T>] => {
+type ResourceResponse<T> = T extends Vacancy
+  ? { vacancies: T[]; count: number }
+  : T[];
+
+const useResource = <T>(resouceUrl: string): [T[], Service<T>, number] => {
   const [resources, setResources] = useState<T[]>([]);
+  const [count, setCount] = useState<number>(0);
 
   const get = async () => {
     try {
-      const response = await httpClient.get<T[]>(resouceUrl);
-      setResources(response.data);
+      const response = await httpClient.get<ResourceResponse<T>>(resouceUrl);
+
+      if ('vacancies' in response.data) {
+        setResources(response.data.vacancies);
+        setCount(response.data.count);
+      } else {
+        setResources(response.data);
+      }
     } catch (error: unknown) {
       if (error instanceof AxiosError) {
         console.error('Failed to get resource', error);
@@ -38,7 +49,7 @@ const useResource = <T>(resouceUrl: string): [T[], Service<T>] => {
     post,
   };
 
-  return [resources, service];
+  return [resources, service, count];
 };
 
 export default useResource;
