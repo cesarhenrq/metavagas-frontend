@@ -1,3 +1,17 @@
+<div align="center">
+     <img width="30%" src="https://github.com/cesarhenrq/metavagas-frontend/assets/92116544/2698b07c-186c-4db7-abc6-1bb60d4c638f"/>
+</div> 
+
+#
+  ### Tecnologias utilizadas
+  ![Typescript](https://img.shields.io/badge/-TypeScript-0D1117?style=for-the-badge&logo=typescript&labelColor=0D1117)&nbsp;
+  ![React](https://img.shields.io/badge/-React-0D1117?style=for-the-badge&logo=react&labelColor=0D1117)&nbsp;
+  ![Jest](https://img.shields.io/badge/-Jest-0D1117?style=for-the-badge&logo=jest&labelColor=0D1117)&nbsp;
+  ![Cypress](https://img.shields.io/badge/-Cypress-0D1117?style=for-the-badge&logo=cypress&labelColor=0D1117)&nbsp;
+  ![Eslint](https://img.shields.io/badge/-Eslint-0D1117?style=for-the-badge&logo=eslint&labelColor=0D1117)&nbsp;
+  ![Prettier](https://img.shields.io/badge/-Prettier-0D1117?style=for-the-badge&logo=prettier&labelColor=0D1117)&nbsp;
+#
+
 [![unit-lint-typecheck-e2e-ct](https://github.com/muratkeremozcan/react-cypress-ts-vite-template/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/muratkeremozcan/react-cypress-ts-vite-template/actions/workflows/main.yml)
 ![react version](https://img.shields.io/badge/react-18.2.0-brightgreen)
 ![cypress version](https://img.shields.io/badge/cypress-13.2.0-brightgreen)
@@ -12,7 +26,7 @@
 
 A template with React, TS, Cypress (e2e & ct), GHA with CI architecture, Jest,
 ESLint, Prettier, Renovate, Husky, Lint-staged, and most of the things you need
-to get started with a new project.
+to get started with a new project. 
 
 ```bash
 yarn install --registry https://registry.yarnpkg.com # specify the registry in case you are using a proprietary registry
