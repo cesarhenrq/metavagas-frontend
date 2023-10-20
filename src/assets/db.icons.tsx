@@ -359,6 +359,96 @@ function Circle({ fill, width, height }: IconProps) {
   );
 }
 
+function ArrowRight() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="20"
+      height="20"
+      fill="none"
+      viewBox="0 0 24 24"
+      transform="rotate(180)"
+    >
+      <path
+        fill="var(--dark-gray)"
+        fillRule="evenodd"
+        d="M12.53 5.47a.75.75 0 010 1.06L7.06 12l5.47 5.47a.75.75 0 11-1.06 1.06l-6-6a.75.75 0 010-1.06l6-6a.75.75 0 011.06 0z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+}
+
+function ArrowDoubleRight() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="20"
+      height="20"
+      fill="none"
+      viewBox="0 0 24 24"
+      transform="rotate(180)"
+    >
+      <path
+        fill="var(--dark-gray)"
+        fillRule="evenodd"
+        d="M12.53 5.47a.75.75 0 010 1.06L7.06 12l5.47 5.47a.75.75 0 11-1.06 1.06l-6-6a.75.75 0 010-1.06l6-6a.75.75 0 011.06 0z"
+        clipRule="evenodd"
+      />
+      <path
+        fill="var(--dark-gray)"
+        fillRule="evenodd"
+        d="M16.53 5.47a.75.75 0 010 1.06L11.06 12l5.47 5.47a.75.75 0 11-1.06 1.06l-6-6a.75.75 0 010-1.06l6-6a.75.75 0 011.06 0z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+}
+
+const ArrowLeft = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="20"
+      height="20"
+      fill="none"
+      viewBox="0 0 24 24"
+    >
+      <path
+        fill="var(--dark-gray)"
+        fillRule="evenodd"
+        d="M12.53 5.47a.75.75 0 010 1.06L7.06 12l5.47 5.47a.75.75 0 11-1.06 1.06l-6-6a.75.75 0 010-1.06l6-6a.75.75 0 011.06 0z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+};
+
+const ArrowDoubleLeft = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="20"
+      height="20"
+      fill="none"
+      viewBox="0 0 24 24"
+    >
+      <path
+        fill="var(--dark-gray)"
+        fillRule="evenodd"
+        d="M12.53 5.47a.75.75 0 010 1.06L7.06 12l5.47 5.47a.75.75 0 11-1.06 1.06l-6-6a.75.75 0 010-1.06l6-6a.75.75 0 011.06 0z"
+        clipRule="evenodd"
+      />
+      <path
+        fill="var(--dark-gray)"
+        fillRule="evenodd"
+        d="M16.53 5.47a.75.75 0 010 1.06L11.06 12l5.47 5.47a.75.75 0 11-1.06 1.06l-6-6a.75.75 0 010-1.06l6-6a.75.75 0 011.06 0z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+};
+
 export {
   Magnifier,
   Location,
@@ -375,4 +465,8 @@ export {
   DownArrow,
   SideArrow,
   Circle,
+  ArrowRight,
+  ArrowLeft,
+  ArrowDoubleLeft,
+  ArrowDoubleRight,
 };
