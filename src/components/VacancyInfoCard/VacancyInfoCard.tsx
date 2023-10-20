@@ -1,7 +1,9 @@
+import { useState } from 'react';
+
 import BaseCard from '@components/BaseCard';
 import Text from '@components/Text';
-import { userContext } from '@contexts/user';
-import { useContext, useState } from 'react';
+
+import useUser from '@hooks/useUser';
 
 import * as S from './styles';
 import * as I from '@assets/db.icons';
@@ -29,8 +31,10 @@ const VacancyInfoCard = ({
   createdAt,
   advertiser,
 }: props) => {
-  const { user } = useContext(userContext);
+  const { user } = useUser();
   const [expanded, setExpanded] = useState(false);
+
+  const today = new Date();
 
   const createdDate = new Date(createdAt);
   const day = createdDate.getDate();
@@ -38,21 +42,20 @@ const VacancyInfoCard = ({
     .toLocaleDateString('pt-BR', { month: 'long' })
     .slice(0, 3);
 
+  const isNew = today.getDate() - createdDate.getDate() <= 1;
+
   const toggleExpansion = () => {
     setExpanded(!expanded);
   };
 
   return (
-    <BaseCard onClick={toggleExpansion}>
+    <BaseCard
+      onClick={toggleExpansion}
+      borderColor={isNew ? 'purple-dark-secondary' : undefined}
+    >
       <S.Card isLogged={Boolean(user)}>
-        <section className="text-date-container">
-          <Text
-            label={`${vacancyRole}`}
-            fontColor="purple-dark"
-            fontSize="medium"
-            fontWeight="500"
-          />
-
+        <div className="header">
+          <S.NewTag isNew={isNew}>Novo</S.NewTag>
           <div className="date-container">
             <Text
               label={`${advertiser}`}
@@ -67,6 +70,14 @@ const VacancyInfoCard = ({
               fontSize="small"
             />
           </div>
+        </div>
+        <section className="text-date-container">
+          <Text
+            label={`${vacancyRole}`}
+            fontColor="purple-dark"
+            fontSize="medium"
+            fontWeight="500"
+          />
         </section>
         <Text
           label={`Empresa: ${company}`}

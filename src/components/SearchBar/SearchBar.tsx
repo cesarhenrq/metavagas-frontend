@@ -7,6 +7,8 @@ import Button from './../Button';
 import useField from '@hooks/useField';
 import useRecentSearches from '@hooks/useRecentSearches';
 import useSearchHandling from '@hooks/useSearchHandling';
+import SaveSearches from '@components/SaveSearches';
+import useUser from '@hooks/useUser';
 
 import * as S from './styles';
 
@@ -17,6 +19,8 @@ const SearchBar = () => {
   const { pathname } = useLocation();
 
   const [recentSearches, addRecentSearch] = useRecentSearches();
+
+  const { user } = useUser();
 
   const handleSearch = useSearchHandling(
     positionOrTech.value,
@@ -102,6 +106,7 @@ const SearchBar = () => {
           </div>
         </div>
       )}
+      {user && pathname === '/vacancies' && <SaveSearches />}
     </S.Container>
   );
 };

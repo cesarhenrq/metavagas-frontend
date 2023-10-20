@@ -1,15 +1,14 @@
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 
 import Text from '@components/Text';
 import FilterNavigation from '@components/FilterNavigation';
 import RegisterCard from '@components/RegisterCard';
 import FilterCard from '@components/FilterCard';
 
-import { userContext } from '@contexts/user';
-
 import useResource from '@hooks/useResource';
 import useFetchResource from '@hooks/useFetchResource';
 import useFilterHandling from '@hooks/useFilterHandling';
+import useUser from '@hooks/useUser';
 
 import * as S from './styles';
 
@@ -18,7 +17,7 @@ import removeDuplicate from '@utils/functions';
 const FilterCardContainer = () => {
   const [activeTab, setActiveTab] = useState('technology');
 
-  const { user } = useContext(userContext);
+  const { user } = useUser();
 
   const [vacancies, vacancyService] = useResource<Vacancy>('vacancies');
   const [technologies, technologyService] =
@@ -28,7 +27,7 @@ const FilterCardContainer = () => {
 
   const roles = removeDuplicate(vacancies, 'vacancyRole') as string[];
   const locations = removeDuplicate(vacancies, 'location') as string[];
-  const tecnologiesToRender = technologies.map(({ tecName }) => tecName);
+  const tecnologiesToRender = technologies.map(({ techName }) => techName);
 
   useFetchResource(vacancyService);
   useFetchResource(technologyService);

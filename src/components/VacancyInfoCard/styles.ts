@@ -1,7 +1,9 @@
 import styled from 'styled-components';
+
 type CardProps = {
   isLogged: boolean;
 };
+
 export const Card = styled.div<CardProps>`
   display: flex;
   flex-direction: column;
@@ -43,6 +45,13 @@ export const Card = styled.div<CardProps>`
   b {
     font-weight: bold;
   }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
 `;
 
 export const CardTech = styled.div`
@@ -56,4 +65,21 @@ export const CardTech = styled.div`
     border-radius: 0.688rem;
     padding: 0.313rem 1.5rem;
   }
+`;
+
+type NewTagProps = {
+  isNew: boolean;
+};
+
+export const NewTag = styled.div<NewTagProps>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--purple-dark-secondary);
+  color: var(--white);
+  font-weight: bold;
+  font-size: var(--font-size-small);
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  visibility: ${({ isNew }) => (isNew ? 'visible' : 'hidden')};
 `;

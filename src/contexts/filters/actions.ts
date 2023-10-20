@@ -115,17 +115,17 @@ export const addMaxWage = (maxWage: string) => {
   };
 };
 
-export const addGeralQuery = (geralQuery: string) => {
+export const addDescription = (description: string) => {
   return {
-    type: 'ADD_GERAL_QUERY',
-    payload: geralQuery,
+    type: 'ADD_DESCRIPTION',
+    payload: description,
   };
 };
 
-export const removeGeralQuery = (geralQuery: string) => {
+export const removeDescription = (description: string) => {
   return {
-    type: 'REMOVE_GERAL_QUERY',
-    payload: geralQuery,
+    type: 'REMOVE_DESCRIPTION',
+    payload: description,
   };
 };
 

@@ -1,12 +1,10 @@
-import { useContext } from 'react';
-
 import { useNavigate } from 'react-router';
-
-import { userContext } from '@contexts/user';
 
 import Text from '@components/Text';
 import Button from '@components/Button';
 import { Telephone, Location, Message } from '@assets/db.icons';
+
+import useUser from '@hooks/useUser';
 
 import * as S from './styles';
 
@@ -24,7 +22,7 @@ const adressText = (
 );
 
 const Footer = () => {
-  const { user } = useContext(userContext);
+  const { user } = useUser();
 
   const navigate = useNavigate();
 
@@ -35,7 +33,11 @@ const Footer = () => {
   return (
     <S.Footer data-cy="footer" isButtonsVisible={Boolean(!user)}>
       <S.Line data-cy="line" />
-      <div className="text-container" data-cy="logo">
+      <div
+        className="text-container"
+        data-cy="logo"
+        onClick={() => redirect('/')}
+      >
         <Text label="meta" fontColor="white" fontSize="large" />
         <Text
           label="vagas"
