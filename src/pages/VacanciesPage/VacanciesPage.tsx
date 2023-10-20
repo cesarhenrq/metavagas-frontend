@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useState, useEffect } from 'react';
 
 import SearchBar from '@components/SearchBar';
 import CountryTechTrends from '@components/CountryTechTrends';
@@ -6,28 +6,48 @@ import CityTechTrendsChart from '@components/CityTechTrendsChart';
 import Filter from '@components/Filter';
 import VacancyInfoCard from '@components/VacancyInfoCard';
 import LoadingSpinner from '@components/LoadingSpinner';
-
-import { queryContext } from '@contexts/query';
+import Pagination from '@components/Pagination';
 
 import useResource from '@hooks/useResource';
 import useFetchResource from '@hooks/useFetchResource';
+import useFilters from '@hooks/useFilters';
+import useQuery from '@hooks/useQuery';
 
 import * as S from './styles';
 import VacanciesFound from '@components/VacanciesFound';
 
 const VacanciesPage = () => {
-  const { query } = useContext(queryContext);
+  const [currentPage, setCurrentPage] = useState(1);
 
-  const url = `vacancies${query && '?' + query}`;
+  const { filters } = useFilters();
 
-  const [vacancies, vacancyService] = useResource<Vacancy>(url);
+  const { query } = useQuery();
 
-  const isLoaded = useFetchResource(vacancyService, [query]);
+  const url = query
+    ? `vacancies${query && '?' + query}&page=${currentPage}`
+    : `vacancies?page=${currentPage}`;
+
+  console.log('url', url);
+
+  const [vacancies, vacancyService, vacanciesCount] = useResource<Vacancy>(url);
+
+  const isLoaded = useFetchResource(vacancyService, [
+    query,
+    currentPage,
+    filters,
+  ]);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [query]);
 
   return (
     <S.VacanciesPage data-cy="vacancies-page">
       <SearchBar />
-      <VacanciesFound allVacancies={'255'} />
+      <VacanciesFound
+        allVacancies={vacanciesCount}
+        technology={filters.technologies.join(', ')}
+      />
       <S.Content>
         <Filter />
         <S.VacancyChartContainer>
@@ -52,6 +72,11 @@ const VacanciesPage = () => {
                 ),
             )}
           </S.Vacancies>
+          <Pagination
+            quantity={vacanciesCount}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+          />
         </S.VacancyChartContainer>
       </S.Content>
     </S.VacanciesPage>
