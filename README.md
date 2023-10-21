@@ -81,8 +81,6 @@ npm start
 
 ## 🔬 Testes unitários:
 
-### <div><img src="https://user-images.githubusercontent.com/25181517/187955005-f4ca6f1a-e727-497b-b81b-93fb9726268e.png" width='20px' alt="Jest" align="center"> Jest</div>
-
 Para executar os testes de unidade, execute o seguinte comando:
 
 ```bash
@@ -97,8 +95,6 @@ npm test
 
 ## 🔨 Testes de componente:
 
-### <div><img src="https://user-images.githubusercontent.com/68279555/200387386-276c709f-380b-46cc-81fd-f292985927a8.png" width='20px' alt="Cypress" align="center"> Cypress</div>
-
 Para executar os testes de componente, execute o seguinte comando:
 
 ```bash
@@ -111,9 +107,7 @@ ou
 npm run cy:run-ct-fast
 ```
 
-## <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path d="M418.4 157.9c35.3-8.3 61.6-40 61.6-77.9c0-44.2-35.8-80-80-80c-43.4 0-78.7 34.5-80 77.5L136.2 151.1C121.7 136.8 101.9 128 80 128c-44.2 0-80 35.8-80 80s35.8 80 80 80c12.2 0 23.8-2.7 34.1-7.6L259.7 407.8c-2.4 7.6-3.7 15.8-3.7 24.2c0 44.2 35.8 80 80 80s80-35.8 80-80c0-27.7-14-52.1-35.4-66.4l37.8-207.7zM156.3 232.2c2.2-6.9 3.5-14.2 3.7-21.7l183.8-73.5c3.6 3.5 7.4 6.7 11.6 9.5L317.6 354.1c-5.5 1.3-10.8 3.1-15.8 5.5L156.3 232.2z"/></svg> Testes end-to-end:
-
-### <div><img src="https://user-images.githubusercontent.com/68279555/200387386-276c709f-380b-46cc-81fd-f292985927a8.png" width='20px' alt="Cypress" align="center"> Cypress</div>
+## ⚙️➖⚙️ Testes end-to-end:
 
 Para executar os testes de end-to-end, execute o seguinte comando:
 
@@ -198,9 +192,9 @@ npm build
 
 Este comando irá gerar uma pasta `dist` contendo o código compilado.
 
-# <div style="display: flex; align-items: center;"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512"><style>svg{fill:#24e066}</style><path d="M0 80C0 53.5 21.5 32 48 32h96c26.5 0 48 21.5 48 48V96H384V80c0-26.5 21.5-48 48-48h96c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48H432c-26.5 0-48-21.5-48-48V160H192v16c0 1.7-.1 3.4-.3 5L272 288h96c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48H272c-26.5 0-48-21.5-48-48V336c0-1.7 .1-3.4 .3-5L144 224H48c-26.5 0-48-21.5-48-48V80z"/></svg><span style="margin-left: 8px;">Arquitetura:</span></div>
+# 🏢 Arquitetura:
 
-## <div style="display: flex; align-items: center;"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512"><path d="M88.7 223.8L0 375.8V96C0 60.7 28.7 32 64 32H181.5c17 0 33.3 6.7 45.3 18.7l26.5 26.5c12 12 28.3 18.7 45.3 18.7H416c35.3 0 64 28.7 64 64v32H144c-22.8 0-43.8 12.1-55.3 31.8zm27.6 16.1C122.1 230 132.6 224 144 224H544c11.5 0 22 6.1 27.7 16.1s5.7 22.2-.1 32.1l-112 192C453.9 474 443.4 480 432 480H32c-11.5 0-22-6.1-27.7-16.1s-5.7-22.2 .1-32.1l112-192z"/></svg><span style="margin-left: 8px;">Estrutura das pastas:</span></div>
+## 📁 Estrutura das pastas:
 
 ```bash
 ├── src
@@ -254,7 +248,7 @@ Este comando irá gerar uma pasta `dist` contendo o código compilado.
 │   └── tsconfig.json
 ```
 
-## <div style="display: flex; align-items: center;"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><path d="M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zM256 0V128H384L256 0zM112 256H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg><span style="margin-left: 8px;">Descrição:</span></div>
+## 📄 Descrição:
 
 - `assets`: Pasta que contém os arquivos estáticos do projeto.
 - `components`: Pasta que contém os componentes do projeto.
