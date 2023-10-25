@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link as RouterLink } from 'react-router-dom';
 
 export const Card = styled.div`
   display: flex;
@@ -25,7 +26,7 @@ export const Container = styled.div`
   }
 `;
 
-export const Link = styled.a`
+export const Link = styled(RouterLink)`
   display: flex;
   text-decoration: none;
 `;

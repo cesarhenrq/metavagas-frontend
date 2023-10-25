@@ -135,3 +135,17 @@ export const resetFilters = () => {
     payload: '',
   };
 };
+
+export const addId = (id: string) => {
+  return {
+    type: 'ADD_ID',
+    payload: id,
+  };
+};
+
+export const removeId = () => {
+  return {
+    type: 'REMOVE_ID',
+    payload: '',
+  };
+};

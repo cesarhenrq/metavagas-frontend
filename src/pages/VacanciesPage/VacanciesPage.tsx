@@ -29,11 +29,7 @@ const VacanciesPage = () => {
 
   const [vacancies, vacancyService, vacanciesCount] = useResource<Vacancy>(url);
 
-  const isLoaded = useFetchResource(vacancyService, [
-    query,
-    currentPage,
-    filters.technologies,
-  ]);
+  const isLoaded = useFetchResource(vacancyService, [query, currentPage]);
 
   useEffect(() => {
     setCurrentPage(1);

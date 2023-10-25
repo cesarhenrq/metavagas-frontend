@@ -1,22 +1,32 @@
 import BaseCard from '@components/BaseCard';
 import Text from '@components/Text';
+import useFilters from '@hooks/useFilters';
 
 import * as S from './styles';
 import * as I from '@assets/db.icons';
 import useUser from '@hooks/useUser';
+import { actions } from '@contexts/filters';
 
 type props = {
   location: string;
   technologies: Technology[];
   vacancyRole: string;
+  id: string;
 };
 
-const VacancyCard = ({ location, technologies, vacancyRole }: props) => {
+const VacancyCard = ({ location, technologies, vacancyRole, id }: props) => {
   const { user } = useUser();
+  const { filtersDispatch } = useFilters();
 
   const technologyElements = technologies
     .map((technology, index) => <b key={index}>{technology.techName}</b>)
     .slice(0, 1);
+
+  const handleFilter = () => {
+    filtersDispatch(actions.addId(id));
+    filtersDispatch(actions.addLocation(location));
+    filtersDispatch(actions.addTechnology(technologies[0].techName));
+  };
 
   return (
     <BaseCard>
@@ -43,7 +53,11 @@ const VacancyCard = ({ location, technologies, vacancyRole }: props) => {
               fontColor="dark-gray"
             />
           </div>
-          <S.Link href={user ? '/vacancies' : '/register'} data-cy="link">
+          <S.Link
+            onClick={user ? handleFilter : () => {}}
+            to={user ? '/vacancies' : '/register'}
+            data-cy="link"
+          >
             <Text
               label="Ver mais detalhes"
               fontWeight="bold"

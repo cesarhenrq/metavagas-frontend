@@ -1,6 +1,7 @@
 import { Action } from './actions';
 
 export type Filters = {
+  id: string;
   location: string;
   technologies: string[];
   vacancyTypes: string[];
@@ -14,6 +15,7 @@ export type Filters = {
 };
 
 export const initialState: Filters = {
+  id: '',
   location: '',
   technologies: [],
   vacancyTypes: [],
@@ -128,6 +130,16 @@ export const filtersDispatcher = (
       return {
         ...state,
         description: '',
+      };
+    case 'ADD_ID':
+      return {
+        ...state,
+        id: action.payload,
+      };
+    case 'REMOVE_ID':
+      return {
+        ...state,
+        id: action.payload,
       };
     case 'RESET_FILTERS':
       return initialState;

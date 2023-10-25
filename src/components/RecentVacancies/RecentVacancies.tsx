@@ -44,6 +44,7 @@ const RecentVacancies = () => {
             location={data.location}
             technologies={data.technologies}
             vacancyRole={data.vacancyRole}
+            id={data.id}
           />
         ))}
       </div>

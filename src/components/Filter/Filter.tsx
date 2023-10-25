@@ -49,10 +49,6 @@ const Filter = () => {
           }
         }
       });
-
-      filtersDispatch(actions.addMinWage(String(minSalary)));
-      filtersDispatch(actions.addMaxWage(String(maxSalary)));
-
       queryDispatch(queryActions.setQuery(buildQueryString(filters)));
     }
   }, [filters.technologies, visibleTechCount, isLoaded]);
