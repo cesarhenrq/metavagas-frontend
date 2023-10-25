@@ -37,5 +37,9 @@ export default createGlobalStyle`
 
     button {
         cursor: pointer;
+
+        .text {
+          user-select: none;
+        }
     }
 `;

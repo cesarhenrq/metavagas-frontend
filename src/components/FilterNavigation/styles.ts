@@ -26,5 +26,6 @@ export const FilterNavigationItem = styled.div<FilterNavigationItemProps>`
 
   .text {
     color: ${({ active }) => (active ? 'var(--yellow)' : 'var(--white)')};
+    user-select: none;
   }
 `;

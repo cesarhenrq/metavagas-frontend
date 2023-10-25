@@ -3,6 +3,7 @@ import Text from '@components/Text';
 
 import * as S from './styles';
 import * as I from '@assets/db.icons';
+import useUser from '@hooks/useUser';
 
 type props = {
   location: string;
@@ -11,6 +12,8 @@ type props = {
 };
 
 const VacancyCard = ({ location, technologies, vacancyRole }: props) => {
+  const { user } = useUser();
+
   const technologyElements = technologies
     .map((technology, index) => <b key={index}>{technology.techName}</b>)
     .slice(0, 1);
@@ -40,7 +43,7 @@ const VacancyCard = ({ location, technologies, vacancyRole }: props) => {
               fontColor="dark-gray"
             />
           </div>
-          <S.Link href="/register" data-cy="link">
+          <S.Link href={user ? '/vacancies' : '/register'} data-cy="link">
             <Text
               label="Ver mais detalhes"
               fontWeight="bold"

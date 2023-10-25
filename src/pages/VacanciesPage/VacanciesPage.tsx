@@ -27,14 +27,12 @@ const VacanciesPage = () => {
     ? `vacancies${query && '?' + query}&page=${currentPage}`
     : `vacancies?page=${currentPage}`;
 
-  console.log('url', url);
-
   const [vacancies, vacancyService, vacanciesCount] = useResource<Vacancy>(url);
 
   const isLoaded = useFetchResource(vacancyService, [
     query,
     currentPage,
-    filters,
+    filters.technologies,
   ]);
 
   useEffect(() => {
